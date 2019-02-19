@@ -11,7 +11,7 @@ gulp.task('marko', function() {
     .pipe(marko({preserveWhitespace: true}).on('error', function(){
 			console.log("Marko compilation failed.");
 		}))
-    .pipe(gulp.dest('./public/'))
+    .pipe(gulp.dest('./public/templates'))
 });
 
 gulp.task('sass', function () {
