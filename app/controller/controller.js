@@ -1,6 +1,6 @@
 // Controller file
 
-const templates = require("./public");
+const templates = require("../../public");
 
 var registeredUsers = [];
 

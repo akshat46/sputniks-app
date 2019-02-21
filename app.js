@@ -4,7 +4,7 @@ require("marko/node-require");
 
 const express = require('express');
 const markoExpress = require('marko/express');
-const routes = require("./router");
+const routes = require("./app/routes/router");
 var bodyParser = require('body-parser');
 var session = require('express-session');
 

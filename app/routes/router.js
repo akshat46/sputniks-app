@@ -4,7 +4,7 @@ const express = require('express');
 var bodyParser = require('body-parser');
 var session = require('express-session');
 const router = express.Router();
-const controller = require("./main");
+const controller = require("../controller/controller");
 
 //Middle ware that is specific to this router
 router.use(function timeLog(req, res, next) {
