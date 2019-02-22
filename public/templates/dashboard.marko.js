@@ -15,15 +15,15 @@ var marko_template = module.exports = require("marko/src/html").t(__filename),
 function render(input, out, __component, component, state) {
   var data = input;
 
-  out.w("<html><head><title>Dashboard Page</title><link href=\"/css/index.css\" rel=\"stylesheet\" type=\"text/css\"><script src=\"/js/bubble_chart.js\"></script></head><body>");
+  out.w("<html><head><title>Dashboard Page</title><link href=\"/css/index.css\" rel=\"stylesheet\" type=\"text/css\"><script type=\"text/javascript\" src=\"https://d3js.org/d3.v4.min.js\"></script></head><body>");
 
   component_globals_tag({}, out);
 
-  out.w("<ul class=\"navbar\"><div class=\"container\"><li class=\"navitem brand\"><a href=\"/\">Sputniks</a></li><li class=\"navitem\"><a href=\"/\">About</a></li><li class=\"navitem\"><a href=\"/authentication\">Sign In</a></li></div></ul><div class=\"container\"><svg></svg></div><script src=\"https://d3js.org/d3.v4.min.js\"></script><script>\n        var svgWidth = 500;\n        var svgHeight = 300;\n        var svg = d3.select('svg')\n            .attr(\"width\", svgWidth)\n            .attr(\"height\", svgHeight)\n            .attr(\"class\", \"bar-chart\");\n\n        var dataset = [80, 100, 56, 120, 180, 30, 40, 120, 160];\n        var barPadding = 5;\n        var barWidth = (svgWidth / dataset.length);\n        var barChart = svg.selectAll(\"rect\")\n            .data(dataset)\n            .enter()\n            .append(\"rect\")\n            .attr(\"y\", function(d) {\n                return svgHeight - d\n            })\n            .attr(\"height\", function(d) {\n                return d;\n            })\n            .attr(\"width\", barWidth - barPadding)\n            .attr(\"transform\", function (d, i) {\n                var translate = [barWidth * i, 0];\n                return \"translate(\"+ translate +\")\";\n            });\n    </script>");
+  out.w("<ul class=\"navbar\"><div class=\"container\"><li class=\"navitem brand\"><a href=\"/\">Sputniks</a></li><li class=\"navitem\"><a href=\"/\">About</a></li><li class=\"navitem\"><a href=\"/authentication\">Sign In</a></li></div></ul><div class=\"container\"><script src=\"js/bubble_chart.js\"></script></div>");
 
   init_components_tag({}, out);
 
-  await_reorderer_tag({}, out, __component, "18");
+  await_reorderer_tag({}, out, __component, "16");
 
   out.w("</body></html>");
 }
