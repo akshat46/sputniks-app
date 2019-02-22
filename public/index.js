@@ -7,3 +7,4 @@ exports.loggedIn = require("./templates/loggedin");
 exports.login = require("./templates/login");
 exports.protected = require("./templates/protected");
 exports.register = require("./templates/register");
+exports.dashboard = require("./templates/dashboard");

@@ -7,10 +7,24 @@
   <link href="/css/index.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-  <h1>Hello World ${input.name}</h1>
-  <form action="http://localhost:3000/authentication" method="get">
-    <button type="submit">Log In</button>
-  </form>
-  <script src="js/scripts.js"></script>
+  <ul class="navbar">
+    <div class="container">
+      <li class="navitem brand"><a href="/">Sputniks</a></li>
+      <li class="navitem"><a href="/">About</a></li>
+      <li class="navitem"><a href="/authentication">Sign In</a></li>
+    </div>
+  </ul>
+
+  <div class="header">
+    <h1>Yelp Data Visualization</h1>
+    <p>Visualize Yelp big data and gain faster business insights</p>
+    <a href = "/authentication" class="cust-button">Get Started</a>
+  </div>
+
+  <!--<h1>Hello World ${input.name}</h1>-->
+  <!--<form action="http://localhost:3000/authentication" method="get">-->
+    <!--<button type="submit">Log In</button>-->
+  <!--</form>-->
+
 </body>
 </html>

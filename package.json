@@ -10,11 +10,14 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@marko/compile": "^4.0.0",
     "body-parser": "^1.18.3",
     "cookie-parser": "^1.4.4",
     "express": "^4.16.4",
     "express-session": "^1.15.6",
-    "marko": "^4.14.25"
+    "lasso-marko": "^2.4.6",
+    "marko": "^4.15.2",
+    "marko-cli": "^6.0.3"
   },
   "devDependencies": {
     "gulp": "^4.0.0",

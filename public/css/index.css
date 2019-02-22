@@ -56,3 +56,76 @@ button {
   transition: all 0.3s ease-in-out; }
   button:focus {
     outline: none; }
+
+.container {
+  width: 800px;
+  margin: 0 auto;
+}
+
+.navbar {
+  background-color: #E8E8E8;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  overflow: hidden;
+}
+
+.navitem {
+  float: right;
+}
+
+.brand {
+  font-size: 20px;
+  float: left;
+}
+
+.navitem a {
+  display: block;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.navitem a:hover {
+  background-color: #C0C0C0;
+}
+
+.header {
+  padding: 200px;
+  background-color: #AE94DE;
+  text-align: center;
+  font-family: 'Karla', sans-serif;
+}
+
+.header h1 {
+  color: white;
+  font-size: 50px;
+  font-weight: bolder;
+  letter-spacing: 0.15em;
+}
+
+.header p {
+  color: black;
+  font-size: 20px;
+  font-weight: lighter;
+  margin-top: 10px;
+}
+
+.cust-button {
+  padding: 20px;
+  border-radius: 16px;
+  background: #31275d;
+  border: 1px solid #100a2d;
+  box-shadow: -1px 1px 3px #1c114e;
+  display: inline-block;
+  margin-top: 49px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.cust-button:focus {
+  outline: none;
+}
+

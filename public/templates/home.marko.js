@@ -1,4 +1,4 @@
-// Compiled using marko@4.14.25 - DO NOT EDIT
+// Compiled using marko@4.15.2 - DO NOT EDIT
 "use strict";
 
 var marko_template = module.exports = require("marko/src/html").t(__filename),
@@ -9,9 +9,8 @@ var marko_template = module.exports = require("marko/src/html").t(__filename),
     marko_helpers = require("marko/src/runtime/html/helpers"),
     marko_loadTag = marko_helpers.t,
     component_globals_tag = marko_loadTag(require("marko/src/components/taglib/component-globals-tag")),
-    marko_escapeXml = marko_helpers.x,
     init_components_tag = marko_loadTag(require("marko/src/components/taglib/init-components-tag")),
-    await_reorderer_tag = marko_loadTag(require("marko/src/taglibs/async/await-reorderer-tag"));
+    await_reorderer_tag = marko_loadTag(require("marko/src/taglibs/core/await/reorderer-renderer"));
 
 function render(input, out, __component, component, state) {
   var data = input;
@@ -20,13 +19,11 @@ function render(input, out, __component, component, state) {
 
   component_globals_tag({}, out);
 
-  out.w("<h1>Hello World " +
-    marko_escapeXml(input.name) +
-    "</h1><form action=\"http://localhost:3000/authentication\" method=\"get\"><button type=\"submit\" style=\"background-color:black;\">Log In</button></form><script src=\"js/scripts.js\"></script>");
+  out.w("<ul class=\"navbar\"><div class=\"container\"><li class=\"navitem brand\"><a href=\"/\">Sputniks</a></li><li class=\"navitem\"><a href=\"/\">About</a></li><li class=\"navitem\"><a href=\"/authentication\">Sign In</a></li></div></ul><div class=\"header\"><h1>Yelp Data Visualization</h1><p>Visualize Yelp big data and gain faster business insights</p><a href=\"/authentication\" class=\"cust-button\">Get Started</a></div>");
 
   init_components_tag({}, out);
 
-  await_reorderer_tag({}, out, __component, "10");
+  await_reorderer_tag({}, out, __component, "18");
 
   out.w("</body></html>");
 }
@@ -43,6 +40,6 @@ marko_template.meta = {
     tags: [
       "marko/src/components/taglib/component-globals-tag",
       "marko/src/components/taglib/init-components-tag",
-      "marko/src/taglibs/async/await-reorderer-tag"
+      "marko/src/taglibs/core/await/reorderer-renderer"
     ]
   };

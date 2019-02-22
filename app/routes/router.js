@@ -32,4 +32,6 @@ router.get('/about', function(req, res) {
   res.send("about page");
 });
 
+router.get('/dashboard', controller.get_dashboard);
+
 module.exports = router;

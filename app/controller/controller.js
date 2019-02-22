@@ -84,10 +84,12 @@ module.exports.post_register = function(req, res)
             console.log("Sucessfully logged in:");
             console.log(req.session.user.username);
 
-            res.marko(templates.loggedIn,
-              { name: req.session.user.username });
+            // res.marko(templates.login, { message: "Please log in!" });
+
+            // res.marko(templates.loggedIn,
+            //   { name: req.session.user.username });
             /**/
-            //res.redirect('/login');
+            res.redirect('/');
         }
     }
 };
@@ -128,8 +130,7 @@ module.exports.post_login = function(req, res)
         console.log("Sucessfully logged in:");
         console.log(req.session.user.username);
 
-        res.marko(templates.loggedIn,
-                   { name: req.session.user.username });
+        res.redirect('/dashboard');
     }
 };
 
@@ -166,3 +167,11 @@ module.exports.get_protected = function(req, res)
 {
     res.marko(templates.protected, { name: req.session.user.username });
 };
+
+
+/*
+* GET Dashbaord page
+ */
+module.exports.get_dashboard = function(req, res) {
+    res.marko(templates.dashboard);
+}
