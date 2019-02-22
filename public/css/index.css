@@ -129,3 +129,8 @@ button {
   outline: none;
 }
 
+.bar-chart {
+  background-color: #C7D9D9;
+  margin-top: 30px;
+
+}
