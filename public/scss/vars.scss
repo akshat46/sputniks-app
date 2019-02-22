@@ -1,0 +1,53 @@
+$duo-1: #F8CB98;
+$dark-1: #997D5E;
+$duo-2: #AE94DE;
+$dark-2: #6E5E8C;
+$white: white;
+$white2: #F7F7F7;
+
+$image: url('https://i.imgur.com/vDhRJV5.jpg');
+
+@mixin center-absolute() {
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	margin: auto;
+}
+
+@mixin title(){
+	font-size: 2em;
+	font-weight: bold;
+	margin: 15px;
+}
+
+@mixin noselect() {
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+@mixin shadow-l($color, $op){
+	-webkit-box-shadow: 0vw 3vh 6vh -2vh rgba($color,$op);
+	-moz-box-shadow: 0vw 3vh 6vh -2vh rgba($color,$op);
+	box-shadow: 0vw 3vh 6vh -2vh rgba($color,$op);
+}
+
+@mixin shadow($color, $op){
+	-webkit-box-shadow: 0vw 1vh 3vh -1vh rgba($color,$op);
+	-moz-box-shadow: 0vw 1vh 3vh -1vh rgba($color,$op);
+	box-shadow: 0vw 1vh 3vh -1vh rgba($color,$op);
+}
+
+@mixin remove-style(){
+	border:none;
+	background-image:none;
+	background-color:transparent;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+}

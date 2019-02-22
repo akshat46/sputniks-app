@@ -14,11 +14,13 @@ router.use(function timeLog(req, res, next) {
 
 router.get('/', controller.root);
 
-router.get('/register', controller.get_register);
+router.get('/authentication', controller.get_auth);
+
+router.get('/register',controller.get_auth);
 
 router.post('/register', controller.post_register);
 
-router.get('/login', controller.get_login);
+router.get('/login', controller.get_auth);
 
 router.post('/login', controller.post_login);
 

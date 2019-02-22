@@ -37,5 +37,5 @@ gulp.task('nodemon', function (cb) {
 	});
 });
 
-gulp.task('default', ['marko', 'sass', 'nodemon', 'sass:watch'], function () {
+gulp.task('default', ['nodemon','marko', 'sass', 'sass:watch'], function () {
 });

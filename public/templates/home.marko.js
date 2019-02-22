@@ -16,17 +16,17 @@ var marko_template = module.exports = require("marko/src/html").t(__filename),
 function render(input, out, __component, component, state) {
   var data = input;
 
-  out.w("<!doctype html><html lang=\"en\"><head><meta charset=\"utf-8\"><title>Sputniks</title><link rel=\"stylesheet\" href=\"css/styles.css?v=1.0\"></head><body>");
+  out.w("<!doctype html><html lang=\"en\"><head><meta charset=\"utf-8\"><title>Sputniks</title><link href=\"/css/index.css\" rel=\"stylesheet\" type=\"text/css\"></head><body>");
 
   component_globals_tag({}, out);
 
   out.w("<h1>Hello World " +
     marko_escapeXml(input.name) +
-    "</h1><script src=\"js/scripts.js\"></script>");
+    "</h1><form action=\"http://localhost:3000/authentication\" method=\"get\"><button type=\"submit\" style=\"background-color:black;\">Log In</button></form><script src=\"js/scripts.js\"></script>");
 
   init_components_tag({}, out);
 
-  await_reorderer_tag({}, out, __component, "8");
+  await_reorderer_tag({}, out, __component, "10");
 
   out.w("</body></html>");
 }

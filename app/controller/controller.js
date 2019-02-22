@@ -14,6 +14,10 @@ module.exports.root = function(req, res, next){
   res.marko(templates.home, context);
 }
 
+module.exports.get_auth = function(req, res){
+  res.marko(templates.auth);
+};
+
 // middleware
 module.exports.loggedIn = function(req, res, next)
 {
@@ -75,7 +79,15 @@ module.exports.post_register = function(req, res)
             registeredUsers.push(newUser);
             console.log("New user:"); console.log(newUser);
             console.log("Registered users:"); console.log(registeredUsers);
-            res.redirect('/login');
+            /**/
+            req.session.user = newUser;
+            console.log("Sucessfully logged in:");
+            console.log(req.session.user.username);
+
+            res.marko(templates.loggedIn,
+              { name: req.session.user.username });
+            /**/
+            //res.redirect('/login');
         }
     }
 };
