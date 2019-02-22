@@ -15,15 +15,15 @@ var marko_template = module.exports = require("marko/src/html").t(__filename),
 function render(input, out, __component, component, state) {
   var data = input;
 
-  out.w("<html><head><title>Logged in page</title></head><body>");
+  out.w("<html><head><title>Dashboard Page</title><link href=\"/css/index.css\" rel=\"stylesheet\" type=\"text/css\"></head><body>");
 
   component_globals_tag({}, out);
 
-  out.w("<p>Hi, you're now logged in.</p><p>You may visit the protected page.</p>");
+  out.w("<ul class=\"navbar\"><div class=\"container\"><li class=\"navitem brand\"><a href=\"/\">Sputniks</a></li><li class=\"navitem\"><a href=\"/\">About</a></li><li class=\"navitem\"><a href=\"/authentication\">Sign In</a></li></div></ul>");
 
   init_components_tag({}, out);
 
-  await_reorderer_tag({}, out, __component, "6");
+  await_reorderer_tag({}, out, __component, "13");
 
   out.w("</body></html>");
 }

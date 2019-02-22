@@ -84,12 +84,12 @@ module.exports.post_register = function(req, res)
             console.log("Sucessfully logged in:");
             console.log(req.session.user.username);
 
-            // res.marko(templates.login, { message: "Please log in!" });
+            res.marko(templates.auth);
 
             // res.marko(templates.loggedIn,
             //   { name: req.session.user.username });
             /**/
-            res.redirect('/');
+            // res.redirect('/');
         }
     }
 };

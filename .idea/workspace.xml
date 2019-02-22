@@ -2,19 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="044116a1-5702-48fe-bee8-2c56c2792196" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controller/controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/controller/controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/routes/router.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/router.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/templates/authenticate.marko.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/templates/authenticate.marko.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/templates/home.marko" beforeDir="false" afterPath="$PROJECT_DIR$/public/templates/home.marko" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/templates/home.marko.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/templates/home.marko.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/templates/loggedin.marko.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/templates/loggedin.marko.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/templates/login.marko.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/templates/login.marko.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/templates/protected.marko.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/templates/protected.marko.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/templates/register.marko.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/templates/register.marko.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/templates/dashboard.marko" beforeDir="false" afterPath="$PROJECT_DIR$/public/templates/dashboard.marko" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/templates/dashboard.marko.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/templates/dashboard.marko.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -28,20 +19,29 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="home.marko" pinned="false" current-in-tab="true">
+      <file leaf-file-name="home.marko" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/templates/home.marko">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="22" column="2" selection-start-line="22" selection-start-column="2" selection-end-line="22" selection-end-column="2" />
+            <state relative-caret-position="225">
+              <caret line="15" column="7" lean-forward="true" selection-start-line="9" selection-start-column="2" selection-end-line="15" selection-end-column="7" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="controller.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="dashboard.marko" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/templates/dashboard.marko">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="195">
+              <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="controller.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controller/controller.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="91" column="27" selection-start-line="91" selection-start-column="27" selection-end-line="91" selection-end-column="27" />
+            <state relative-caret-position="248">
+              <caret line="86" column="36" selection-start-line="86" selection-start-column="36" selection-end-line="86" selection-end-column="36" />
             </state>
           </provider>
         </entry>
@@ -67,13 +67,13 @@
         <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/public/templates/home.html" />
         <option value="$PROJECT_DIR$/app/routes/router.js" />
-        <option value="$PROJECT_DIR$/public/templates/dashboard.marko" />
         <option value="$PROJECT_DIR$/public/index.js" />
         <option value="$PROJECT_DIR$/public/templates/loggedin.marko" />
-        <option value="$PROJECT_DIR$/app/controller/controller.js" />
         <option value="$PROJECT_DIR$/public/css/styles.css" />
         <option value="$PROJECT_DIR$/public/css/index.css" />
         <option value="$PROJECT_DIR$/public/templates/home.marko" />
+        <option value="$PROJECT_DIR$/public/templates/dashboard.marko" />
+        <option value="$PROJECT_DIR$/app/controller/controller.js" />
       </list>
     </option>
   </component>
@@ -206,12 +206,12 @@
       <updated>1550711545102</updated>
       <workItem from="1550711546362" duration="730000" />
       <workItem from="1550729273765" duration="18731000" />
-      <workItem from="1550831195234" duration="1024000" />
+      <workItem from="1550831195234" duration="1533000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20485000" />
+    <option name="totallyTimeSpent" value="20994000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -365,13 +365,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/templates/dashboard.marko">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="7" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/css/auth.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1942">
@@ -398,17 +391,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controller/controller.js">
+    <entry file="file://$PROJECT_DIR$/public/templates/dashboard.marko">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="91" column="27" selection-start-line="91" selection-start-column="27" selection-end-line="91" selection-end-column="27" />
+        <state relative-caret-position="195">
+          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/templates/home.marko">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="2" selection-start-line="22" selection-start-column="2" selection-end-line="22" selection-end-column="2" />
+        <state relative-caret-position="225">
+          <caret line="15" column="7" lean-forward="true" selection-start-line="9" selection-start-column="2" selection-end-line="15" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controller/controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="248">
+          <caret line="86" column="36" selection-start-line="86" selection-start-column="36" selection-end-line="86" selection-end-column="36" />
         </state>
       </provider>
     </entry>
