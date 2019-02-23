@@ -176,7 +176,8 @@ module.exports.get_protected = function(req, res)
 
 module.exports.dashboard = function(req, res) {
     userDetails.push(req.body);
-    res.marko(templates.dashboard);
+    console.log(userDetails[0].city);
+    res.marko(templates.dashboard, {city:userDetails[0].city});
 }
 
 module.exports.details = function(req, res) {
@@ -186,9 +187,7 @@ module.exports.details = function(req, res) {
 
 module.exports.dataentry = function(req, res) {
     console.log(req.body);
-    city = req.body.city;
-    console.log(city);
-    res.marko(templates.dashboard, {city:city});
+    res.redirect('/dashboard');
 }
 
 
