@@ -178,8 +178,22 @@ input[type="checkbox"], input[type="radio"] {
 }
 
 .column {
-  background-color: #E8E8E8;
+  box-sizing: border-box;
   width: 50%;
-  height: 50%;
-  padding:10px;
+  height: 60%;
+  padding: 10px;
+  float:left;
+  margin-top: 10px;
+}
+
+.column-content {
+  background-color: #F8F8F8;
+  height: 100%;
+  weight: 100%;
+}
+
+.column-label {
+  text-align: center;
+  font-family: 'Karla', sans-serif !important;
+  font-weight: bold;
 }

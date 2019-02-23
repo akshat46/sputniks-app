@@ -5,17 +5,17 @@ dataset = {
         {"Name":"Thai","Count":11},
         {"Name":"German","Count":34},
         {"Name":"Canadian","Count":12},
-        {"Name":"Hungarian","Count":32}]
+        {"Name":"Hungarian","Count":28}]
 };
 
-var diameter = 600;
+var diameter = document.getElementsByClassName("column")[0].getBoundingClientRect().width;
 var color = d3.scaleOrdinal(d3.schemeCategory20);
 
 var bubble = d3.pack(dataset)
     .size([diameter, diameter])
     .padding(1.5);
 
-var svg = d3.select("body")
+var svg = d3.select(".column:nth-child(2) .column-content")
     .append("svg")
     .attr("width", diameter)
     .attr("height", diameter)

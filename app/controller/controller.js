@@ -184,6 +184,13 @@ module.exports.details = function(req, res) {
 }
 
 
+module.exports.dataentry = function(req, res) {
+    console.log(req.body);
+    city = req.body.city;
+    console.log(city);
+    res.marko(templates.dashboard, {city:city});
+}
+
 
 module.exports.data_search = function(req, res)
 {

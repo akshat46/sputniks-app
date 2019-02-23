@@ -2,7 +2,6 @@
 <head>
     <title>Dashboard Page</title>
     <link href="/css/index.css" rel="stylesheet" type="text/css" />
-    <script type="text/javascript" src="https://d3js.org/d3.v4.min.js"></script>
 </head>
 <body>
     <ul class="navbar">
@@ -14,9 +13,17 @@
     </ul>
 
     <div class="container">
-        <div class="column"></div>
-        <!--<script src="js/bubble_chart.js"></script>-->
+        <div class="column">
+            <div class="column-content"></div>
+        </div>
+        <div class="column">
+            <div class="column-content">
+            </div>
+            <p class="column-label"> Total Restuarant Insight for city ${input.city}</p>
+        </div>
     </div>
-
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="js/bubble_chart.js"></script>
 </body>
 </html>
