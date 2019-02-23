@@ -34,10 +34,12 @@ router.get('/about', function(req, res) {
 
 router.get('/dashboard', controller.dashboard);
 
+router.post('/dashboard', controller.dashboard);
+
 router.get('/dataSearch', controller.data_search);
 
 router.get('/details', controller.details);
 
-router.post('/dataentry', controller.dataentry);
+// router.post('/dataentry', controller.dataentry);
 
 module.exports = router;
