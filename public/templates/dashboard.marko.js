@@ -16,11 +16,11 @@ var marko_template = module.exports = require("marko/src/html").t(__filename),
 function render(input, out, __component, component, state) {
   var data = input;
 
-  out.w("<html><head><title>Dashboard Page</title><link href=\"/css/index.css\" rel=\"stylesheet\" type=\"text/css\"></head><body>");
+  out.w("<html><head><title>Dashboard Page</title><link href=\"/css/index.css\" rel=\"stylesheet\" type=\"text/css\"></head><body style=\"background-color:#AE94DE;\">");
 
   component_globals_tag({}, out);
 
-  out.w("<ul class=\"navbar\"><div class=\"container\"><li class=\"navitem brand\"><a href=\"/\">Sputniks</a></li><li class=\"navitem\"><a href=\"/\">About</a></li><li class=\"navitem\"><a href=\"/authentication\">Sign In</a></li></div></ul><div class=\"container\"><div class=\"column\"><div class=\"column-content\"></div></div><div class=\"column\"><div class=\"column-content\"></div><p class=\"column-label\"> Total Restuarant Insight for city " +
+  out.w("<ul class=\"navbar\"><div class=\"container\"><li class=\"navitem brand\"><a href=\"/\">Sputniks</a></li><li class=\"navitem\"><a href=\"/\">About</a></li><li class=\"navitem\"><a href=\"/authentication\">Sign In</a></li></div></ul><div class=\"container bubble-chart\"><div class=\"column\"><div class=\"column-content\"></div></div><div class=\"column\"><div class=\"column-content\"></div><p class=\"column-label\"> Total Restuarant Insight for city " +
     marko_escapeXml(input.city) +
     "</p></div></div><link href=\"/css/map.css\" rel=\"stylesheet\" type=\"text/css\" />\n<div id=\"map\"></div>\n<script src=\"/js/map.js\"></script>\n<script src=\"https://maps.googleapis.com/maps/api/js?key=AIzaSyCzGa6kea5GkeVEBjPTEUMq2bwz_X0MoNA&callback=initMap\" async defer></script>\n<script src=\"https://code.jquery.com/jquery-3.3.1.min.js\"></script><script type=\"text/javascript\" src=\"https://d3js.org/d3.v4.min.js\"></script><script src=\"js/bubble_chart.js\"></script>");
 

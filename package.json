@@ -21,7 +21,7 @@
     "marko-cli": "^6.0.3"
   },
   "devDependencies": {
-    "gulp": "^4.0.0",
+    "gulp": "3.9.1",
     "gulp-marko-compile": "0.0.3",
     "gulp-nodemon": "^2.4.2",
     "gulp-sass": "^4.0.2",

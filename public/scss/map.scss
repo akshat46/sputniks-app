@@ -1,8 +1,10 @@
 @import 'vars';
 
 #map{
-  @include center-absolute();
-  position: absolute;
+  @include shadow-l(black, 0.3);
+  position: relative;
+  margin: 80px auto;
+  border-radius: 20px;
   height: 800px;
   width: 800px;
 }
