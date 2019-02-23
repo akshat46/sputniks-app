@@ -32,6 +32,8 @@ router.get('/about', function(req, res) {
   res.send("about page");
 });
 
+router.get('/dashboard', controller.dashboard);
+
 router.get('/dataSearch', controller.data_search);
 
 router.get('/details', controller.details);

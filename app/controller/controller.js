@@ -131,7 +131,7 @@ module.exports.post_login = function(req, res)
         console.log("Sucessfully logged in:");
         console.log(req.session.user.username);
 
-        res.redirect('/dashboard');
+        res.redirect('/details');
     }
 };
 
@@ -173,6 +173,11 @@ module.exports.get_protected = function(req, res)
 /*
 * GET Dashbaord page
  */
+
+module.exports.dashboard = function(req, res) {
+    res.marko(templates.dashboard);
+}
+
 module.exports.details = function(req, res) {
     res.marko(templates.details);
 }
@@ -180,6 +185,7 @@ module.exports.details = function(req, res) {
 
 module.exports.dataentry = function(req, res) {
     console.log(req.body);
+    res.redirect('/dashboard');
 }
 
 

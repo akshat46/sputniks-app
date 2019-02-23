@@ -19,7 +19,7 @@ function render(input, out, __component, component, state) {
 
   component_globals_tag({}, out);
 
-  out.w("<ul class=\"navbar\"><div class=\"container\"><li class=\"navitem brand\"><a href=\"/\">Sputniks</a></li><li class=\"navitem\"><a href=\"/\">About</a></li><li class=\"navitem\"><a href=\"/authentication\">Sign In</a></li></div></ul><div class=\"container\"><script src=\"js/bubble_chart.js\"></script></div>");
+  out.w("<ul class=\"navbar\"><div class=\"container\"><li class=\"navitem brand\"><a href=\"/\">Sputniks</a></li><li class=\"navitem\"><a href=\"/\">About</a></li><li class=\"navitem\"><a href=\"/authentication\">Sign In</a></li></div></ul><div class=\"container\"><div class=\"column\"></div></div>");
 
   init_components_tag({}, out);
 
