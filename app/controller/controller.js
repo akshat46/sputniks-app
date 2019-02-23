@@ -1,6 +1,7 @@
 // Controller file
 
 const templates = require("../../public");
+const path=require('path');
 
 var registeredUsers = [];
 var userDetails = [];

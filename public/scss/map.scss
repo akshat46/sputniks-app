@@ -1,0 +1,8 @@
+@import 'vars';
+
+#map{
+  @include center-absolute();
+  position: absolute;
+  height: 800px;
+  width: 800px;
+}

@@ -47,3 +47,144 @@ button{
 		outline: none;
 	}
 }
+
+.container {
+  width: 800px;
+  margin: 0 auto;
+}
+
+.navbar {
+  background-color: #E8E8E8;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  overflow: hidden;
+}
+
+.navitem {
+  float: right;
+}
+
+.brand {
+  font-size: 20px;
+  float: left;
+}
+
+.navitem a {
+  display: block;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.navitem a:hover {
+  background-color: #C0C0C0;
+}
+
+.header {
+  padding: 200px;
+  background-color: #AE94DE;
+  text-align: center;
+  font-family: 'Karla', sans-serif;
+}
+
+.header h1 {
+  color: white;
+  font-size: 50px;
+  font-weight: bolder;
+  letter-spacing: 0.15em;
+}
+
+.header p {
+  color: black;
+  font-size: 20px;
+  font-weight: lighter;
+  margin-top: 10px;
+}
+
+.cust-button {
+  padding: 20px;
+  border-radius: 16px;
+  background: #31275d;
+  border: 1px solid #100a2d;
+  box-shadow: -1px 1px 3px #1c114e;
+  display: inline-block;
+  margin-top: 49px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.cust-button:focus {
+  outline: none;
+}
+
+.modal {
+  height: 100%;
+  width: 100%;
+  background-color: #AE94DE;
+  display: block;
+  position:fixed;
+}
+
+.modal-content {
+  height: 70%;
+  width: 30%;
+  position: fixed;
+  left:50%;
+  top:50%;
+  transform: translate(-50%,-50%);
+  background-color: #C0C0C0;
+  box-shadow: -1px 1px 3px #1c114e;
+  border-radius: 16px;
+  margin: auto;
+  overflow: scroll;
+}
+
+.modal-form {
+  margin: 10px;
+  padding: 10px;
+}
+
+.modal-input {
+  display:block;
+  margin: 10px;
+}
+
+.modal-label {
+  margin-left: 10px;
+  display: block;
+  margin-top: 15px;
+}
+
+input[type="checkbox"], input[type="radio"] {
+  margin-left: 10px;
+}
+
+.button-form {
+  margin-top: 20px;
+  display:block;
+  float:right;
+}
+
+.column {
+  box-sizing: border-box;
+  width: 50%;
+  height: 60%;
+  padding: 10px;
+  float:left;
+  margin-top: 10px;
+}
+
+.column-content {
+  background-color: #F8F8F8;
+  height: 100%;
+  weight: 100%;
+}
+
+.column-label {
+  text-align: center;
+  font-family: 'Karla', sans-serif !important;
+  font-weight: bold;
+}
