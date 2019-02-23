@@ -65,3 +65,5 @@ src/.DS_Store
 .idea/workspace.xml
 public/templates/home.marko.js
 public/templates/dashboard.marko.js
+public/templates/dashboard.marko.js
+public/templates/dashboard.marko.js
