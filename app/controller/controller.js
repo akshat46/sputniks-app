@@ -3,6 +3,7 @@
 const templates = require("../../public");
 
 var registeredUsers = [];
+var city = [];
 
 module.exports.root = function(req, res, next){
   var context = {
@@ -172,6 +173,27 @@ module.exports.get_protected = function(req, res)
 /*
 * GET Dashbaord page
  */
-module.exports.get_dashboard = function(req, res) {
-    res.marko(templates.dashboard);
+module.exports.details = function(req, res) {
+    res.marko(templates.details);
 }
+
+
+module.exports.dataentry = function(req, res) {
+    console.log(req.body);
+}
+
+
+module.exports.data_search = function(req, res)
+{
+    console.log("Displaying Data:");
+
+    // if (req.session.user)
+    // {
+        res.marko(templates.datasearch);
+    // }
+    // else
+    // {
+        console.log("Nobody is currently logged in!");
+    //     res.redirect("/login");
+    // }
+};
