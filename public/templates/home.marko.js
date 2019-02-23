@@ -19,11 +19,11 @@ function render(input, out, __component, component, state) {
 
   component_globals_tag({}, out);
 
-  out.w("<ul class=\"navbar\"><div class=\"container\"><li class=\"navitem brand\"><a href=\"/\">Sputniks</a></li><li class=\"navitem\"><a href=\"/\">About</a></li><li class=\"navitem\"><a href=\"/authentication\">Sign In</a></li></div></ul><div class=\"header\"><h1>Yelp Data Visualization</h1><p>Visualize Yelp big data and gain faster business insights</p><a href=\"/authentication\" class=\"cust-button\">Get Started</a></div>");
+  out.w("<ul class=\"navbar\"><div class=\"container\"><li class=\"navitem brand\"><a href=\"/\">Sputniks</a></li><li class=\"navitem\"><a href=\"/\">About</a></li></div></ul><div class=\"header\"><h1>Yelp Data Visualization</h1><p>Visualize Yelp big data and gain faster business insights</p><a href=\"/dashboard\" class=\"cust-button\">Get Started</a></div>");
 
   init_components_tag({}, out);
 
-  await_reorderer_tag({}, out, __component, "18");
+  await_reorderer_tag({}, out, __component, "16");
 
   out.w("</body></html>");
 }
