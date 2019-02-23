@@ -45,7 +45,7 @@ module.exports.loggedIn = function(req, res, next)
 
 module.exports.get_register = function(req, res, next)
 {
-    res.marko(templates.register,
+    res.marko(templates.auth,
                { message: "Please register!" });
 };
 
@@ -70,7 +70,7 @@ module.exports.post_register = function(req, res)
         // If there is a match, the user has already registered.
         if (matches.length > 0)
         {
-            res.marko(templates.register, {message: "User already registered!"});
+            res.marko(templates.auth, {message: "User already registered!"});
         }
 
         // Register a new user.
@@ -123,7 +123,7 @@ module.exports.post_login = function(req, res)
 
     if (matches.length === 0)
     {
-        res.marko(templates.login, {message: "Invalid credentials!"});
+        res.marko(templates.auth, {message: "Invalid credentials!"});
     }
     else
     {
@@ -153,13 +153,18 @@ module.exports.get_logout = function(req, res)
             console.log(name + " logged out.");
         });
 
-        res.send(name + " is now logged out.");
+        // res.send(name + " is now logged out.\nRedirecting you to home page");
+        res.redirect("/authentication");
     }
     else
     {
         console.log("Nobody is currently logged in!");
-        res.send("Nobody is currently logged in!");
+        // res.send("Nobody is currently logged in!\nRedirecting you to login page");
+        // await sleep(5);
+        res.redirect("/authentication");
     }
+
+
 };
 
 /*
@@ -176,13 +181,22 @@ module.exports.get_protected = function(req, res)
  */
 
 module.exports.dashboard = function(req, res) {
-    userDetails.push(req.body);
-    console.log(userDetails[0].city);
-    res.marko(templates.dashboard, {city:userDetails[0].city});
+    if (req.session.user){
+        userDetails.push(req.body);
+        console.log(userDetails[0].city);
+        res.marko(templates.dashboard, {city:userDetails[0].city});
+    }else{
+        console.log("Nobody is currently logged in!");
+        res.redirect("/authentication");
+    }
 }
 
 module.exports.details = function(req, res) {
-    res.marko(templates.details);
+    if (req.session.user) {
+        res.marko(templates.details);
+    }else{
+        res.redirect("/authentication");
+    }
 }
 
 
