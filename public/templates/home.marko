@@ -6,24 +6,21 @@
   <title>Sputniks</title>
   <link href="/css/index.css" rel="stylesheet" type="text/css" />
 </head>
-<body>
+<body onload="draw()">
   <ul class="navbar">
     <div class="container">
       <li class="navitem brand"><a href="/">Sputniks</a></li>
+      <li class="navitem"><a href="/login">Login</a></li>
       <li class="navitem"><a href="/">About</a></li>
     </div>
   </ul>
 
-  <div class="header">
-    <h1>Yelp Data Visualization</h1>
-    <p>Visualize Yelp big data and gain faster business insights</p>
-    <a href = "/dashboard" class="cust-button">Get Started</a>
+  <div>
+    <canvas style="position:relative" id="header_animation" width="1440px" height="500px"></canvas>
+      <!--<h1>Yelp Data Visualization</h1>-->
+      <!--<p>Visualize Yelp big data and gain faster business insights</p>-->
+      <!--<a href = "/dashboard" class="cust-button">Get Started</a>-->
   </div>
-
-  <!--<h1>Hello World ${input.name}</h1>-->
-  <!--<form action="http://localhost:3000/authentication" method="get">-->
-    <!--<button type="submit">Log In</button>-->
-  <!--</form>-->
-
+  <script src="js/header_animation.js"></script>
 </body>
 </html>

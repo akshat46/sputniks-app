@@ -15,15 +15,15 @@ var marko_template = module.exports = require("marko/src/html").t(__filename),
 function render(input, out, __component, component, state) {
   var data = input;
 
-  out.w("<!doctype html><html lang=\"en\"><head><meta charset=\"utf-8\"><title>Sputniks</title><link href=\"/css/index.css\" rel=\"stylesheet\" type=\"text/css\"></head><body>");
+  out.w("<!doctype html><html lang=\"en\"><head><meta charset=\"utf-8\"><title>Sputniks</title><link href=\"/css/index.css\" rel=\"stylesheet\" type=\"text/css\"></head><body onload=\"draw()\">");
 
   component_globals_tag({}, out);
 
-  out.w("<ul class=\"navbar\"><div class=\"container\"><li class=\"navitem brand\"><a href=\"/\">Sputniks</a></li><li class=\"navitem\"><a href=\"/\">About</a></li></div></ul><div class=\"header\"><h1>Yelp Data Visualization</h1><p>Visualize Yelp big data and gain faster business insights</p><a href=\"/dashboard\" class=\"cust-button\">Get Started</a></div>");
+  out.w("<ul class=\"navbar\"><div class=\"container\"><li class=\"navitem brand\"><a href=\"/\">Sputniks</a></li><li class=\"navitem\"><a href=\"/login\">Login</a></li><li class=\"navitem\"><a href=\"/\">About</a></li></div></ul><div><canvas style=\"position:relative\" id=\"header_animation\" width=\"1440px\" height=\"500px\"></canvas></div><script src=\"js/header_animation.js\"></script>");
 
   init_components_tag({}, out);
 
-  await_reorderer_tag({}, out, __component, "16");
+  await_reorderer_tag({}, out, __component, "17");
 
   out.w("</body></html>");
 }

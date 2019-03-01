@@ -20,13 +20,13 @@ function render(input, out, __component, component, state) {
 
   component_globals_tag({}, out);
 
-  out.w("<ul class=\"navbar\"><div class=\"container\"><li class=\"navitem brand\"><a href=\"/\">Sputniks</a></li><li class=\"navitem\"><a href=\"/\">About</a></li><li class=\"navitem\"><a href=\"/logout\">Sign Out</a></li></div></ul><div class=\"container bubble-chart\"><div class=\"column\"><div class=\"column-content\"></div></div><div class=\"column\"><div class=\"column-content\"></div><p class=\"column-label\"> Total Restuarant Insight for city " +
+  out.w("<ul class=\"navbar\"><div class=\"container\"><li class=\"navitem brand\"><a href=\"/\">Sputniks</a></li><li class=\"navitem\"><a href=\"/\">About</a></li><li class=\"navitem\"><a href=\"/logout\">Sign Out</a></li></div></ul><div class=\"container bubble-chart\"><div class=\"column\"><div class=\"column-content\"></div><p class=\"column-label\"> Total Restuarant Insight for city " +
     marko_escapeXml(input.city) +
     "</p></div></div><link href=\"/css/map.css\" rel=\"stylesheet\" type=\"text/css\" />\n<div id=\"map\"></div>\n<script src=\"/js/map.js\"></script>\n<script src=\"https://maps.googleapis.com/maps/api/js?key=AIzaSyCzGa6kea5GkeVEBjPTEUMq2bwz_X0MoNA&callback=initMap\" async defer></script>\n<script src=\"https://code.jquery.com/jquery-3.3.1.min.js\"></script><script type=\"text/javascript\" src=\"https://d3js.org/d3.v4.min.js\"></script><script src=\"js/bubble_chart.js\"></script>");
 
   init_components_tag({}, out);
 
-  await_reorderer_tag({}, out, __component, "22");
+  await_reorderer_tag({}, out, __component, "20");
 
   out.w("</body></html>");
 }
