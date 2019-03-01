@@ -1,9 +1,4 @@
 #map {
-  -webkit-box-shadow: 0vw 3vh 6vh -2vh rgba(0, 0, 0, 0.3);
-  -moz-box-shadow: 0vw 3vh 6vh -2vh rgba(0, 0, 0, 0.3);
-  box-shadow: 0vw 3vh 6vh -2vh rgba(0, 0, 0, 0.3);
-  position: relative;
-  margin: 80px auto;
   border-radius: 20px;
   height: 800px;
   width: 800px; }
