@@ -23,7 +23,7 @@ function render(input, out, __component, component, state) {
   if (input.message) {
     out.w("<h4> " +
       marko_escapeXml(input.message) +
-      " </h4><form action=\"/login\" method=\"POST\"><input name=\"username\" type=\"text\" required=\"required\" placeholder=\"username\"><input name=\"password\" type=\"password\" required=\"required\" placeholder=\"password\"><button type=\"Submit\">Log in</button></form>");
+      " </h4><form action=\"/login\" method=\"POST\"><input name=\"username\" type=\"text\" required=\"required\" placeholder=\"username\"><input name=\"password\" type=\"password\" required=\"required\" placeholder=\"password\"><button type=\"Submit\">Sign in</button></form>");
   }
 
   init_components_tag({}, out);

@@ -23,12 +23,14 @@ function render(input, out, __component, component, state) {
   if (input.message) {
     out.w("<h4>" +
       marko_escapeXml(input.message) +
-      "</h4><form action=\"/register\" method=\"POST\"><input name=\"username\" type=\"text\" required=\"required\" placeholder=\"username\"><input name=\"password\" type=\"password\" required=\"required\" placeholder=\"password\"><button type=\"Submit\">Log in</button></form>");
+      "</h4><form action=\"/register\" method=\"POST\"><input name=\"username\" type=\"text\" required=\"required\" placeholder=\"username\"><input name=\"password\" type=\"password\" required=\"required\" placeholder=\"password\"><button type=\"Submit\">Sign Up</button><p id=\"error\"></p></form>");
   }
+
+  out.w("<script src=\"validations.js\"></script>");
 
   init_components_tag({}, out);
 
-  await_reorderer_tag({}, out, __component, "9");
+  await_reorderer_tag({}, out, __component, "11");
 
   out.w("</body></html>");
 }
