@@ -40,6 +40,15 @@ function draw() {
         con.fillStyle = circles[j].color;
         con.fill();
 
+
+        con.textAlign = "center";
+        con.font = "bold 60px Arial";
+        con.strokeText('Yelp Data Visualization', CANVAS_WIDTH/2, (CANVAS_HEIGHT/2) - 30);
+
+        con.font = "lighter 20px Arial";
+        con.fillStyle = 'white';
+        con.fillText('Visualize Yelp big data and gain faster business insights', CANVAS_WIDTH/2, (CANVAS_HEIGHT/2));
+
         if (x > CANVAS_WIDTH || x < 0) {
             circles[j].dx *= -1;
         }
