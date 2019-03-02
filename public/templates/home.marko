@@ -10,7 +10,13 @@
   <ul class="navbar">
     <div class="container">
       <li class="navitem brand"><a href="/">Sputniks</a></li>
-      <li class="navitem"><a href="/login">Login</a></li>
+      <if(input.logged)>
+        <li class="navitem"><a href="/logout">Log out</a></li>
+        <li class="navitem"><a href="/dashboard">Dashboard</a></li>
+      </if>
+      <else>
+        <li class="navitem"><a href="/login">Login</a></li>
+      </else>
       <li class="navitem"><a href="/">About</a></li>
     </div>
   </ul>

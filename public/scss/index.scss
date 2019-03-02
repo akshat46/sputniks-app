@@ -75,9 +75,11 @@ button{
 }
 
 .navitem a {
+	@include remove-style();
 	display: block;
 	text-align: center;
 	padding: 14px 16px;
+	color: $dark-2;
 	text-decoration: none;
 }
 

@@ -7,13 +7,16 @@ var registeredUsers = [];
 var userDetails = [];
 
 module.exports.root = function(req, res, next){
-  var context = {
-    name: "Frank",
-    count: 30,
-    colors: ["red", "green", "blue"]
-  };
+var logged;
+  if (req.session.user){
+    logged = true;
+  }
+  else{
+    logged = false;
+  }
   console.log('Cookies: ', req.cookies);
-  res.marko(templates.home, context);
+  console.log(logged);
+  res.marko(templates.home, {logged: logged});
 }
 
 module.exports.get_auth = function(req, res){

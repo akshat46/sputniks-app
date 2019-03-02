@@ -19,11 +19,19 @@ function render(input, out, __component, component, state) {
 
   component_globals_tag({}, out);
 
-  out.w("<ul class=\"navbar\"><div class=\"container\"><li class=\"navitem brand\"><a href=\"/\">Sputniks</a></li><li class=\"navitem\"><a href=\"/login\">Login</a></li><li class=\"navitem\"><a href=\"/\">About</a></li></div></ul><div><canvas style=\"position:relative\" id=\"header_animation\" width=\"1440px\" height=\"500px\"></canvas></div><script src=\"js/header_animation.js\"></script>");
+  out.w("<ul class=\"navbar\"><div class=\"container\"><li class=\"navitem brand\"><a href=\"/\">Sputniks</a></li>");
+
+  if (input.logged) {
+    out.w("<li class=\"navitem\"><a href=\"/logout\">Log out</a></li><li class=\"navitem\"><a href=\"/dashboard\">Dashboard</a></li>");
+  } else {
+    out.w("<li class=\"navitem\"><a href=\"/login\">Login</a></li>");
+  }
+
+  out.w("<li class=\"navitem\"><a href=\"/\">About</a></li></div></ul><div><canvas style=\"position:relative\" id=\"header_animation\" width=\"1440px\" height=\"500px\"></canvas></div><script src=\"js/header_animation.js\"></script>");
 
   init_components_tag({}, out);
 
-  await_reorderer_tag({}, out, __component, "17");
+  await_reorderer_tag({}, out, __component, "21");
 
   out.w("</body></html>");
 }
