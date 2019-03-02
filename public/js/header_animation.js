@@ -2,9 +2,9 @@ const canvas = document.getElementById('header_animation');
 const con = canvas.getContext('2d');
 const CANVAS_WIDTH = canvas.width;
 const CANVAS_HEIGHT = canvas.height;
-let num_circles = 100;
-let radius = 10;
+let num_circles = 60;
 let circles = [];
+const MAX_RADIUS = 40;
 let requestAnimationFrame = window.requestAnimationFrame ||
     window.mozRequestAnimationFrame ||
     window.webkitRequestAnimationFrame ||
@@ -12,12 +12,14 @@ let requestAnimationFrame = window.requestAnimationFrame ||
 
 // Create circles
 for(let i=0; i < num_circles; i++){
+    let radius = generateRandom(MAX_RADIUS);
     let circle = {
         x: generateRandom(CANVAS_WIDTH - (2*radius)),
         y: generateRandom(CANVAS_HEIGHT - (2*radius)),
         dx: (Math.random()-0.5) *10,
         dy: (Math.random()-0.5) *10,
-        color: generateRandomColor()
+        color: generateRandomColor(),
+        radius:radius
     }
     circles.push(circle);
 }
@@ -34,6 +36,7 @@ function draw() {
     for(let j=0; j < num_circles; j++) {
         let x  = circles[j].x;
         let y = circles[j].y;
+        let radius = circles[j].radius;
         con.beginPath();
         con.arc(x, y, radius, 0, 2 * Math.PI, false);
         con.closePath()
