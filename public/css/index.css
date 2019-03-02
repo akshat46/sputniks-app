@@ -258,6 +258,19 @@ input[type="checkbox"], input[type="radio"] {
   transition: all 0.6s ease;
   overflow: hidden; }
 
+.game-panel {
+  -webkit-box-shadow: 0vw 3vh 6vh -2vh rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0vw 3vh 6vh -2vh rgba(0, 0, 0, 0.3);
+  box-shadow: 0vw 3vh 6vh -2vh rgba(0, 0, 0, 0.3);
+  position: absolute;
+  width: 800px;
+  background: white;
+  border-radius: 20px;
+  padding: 20px;
+  margin: 80px auto;
+  transition: all 0.6s ease;
+  overflow: hidden; }
+
 .button-row {
   display: block;
   position: relative;
@@ -278,8 +291,23 @@ input[type="checkbox"], input[type="radio"] {
   left: 50%;
   transform: translateX(-50%); }
 
-.left-panel {
-  left: -900px; }
+.map-panel {
+  left: -100%; }
 
 .right-panel {
   left: 100%; }
+
+.left-panel {
+  right:100%;
+}
+.play-button {
+  background-color: #AE94DE;
+  left: 50%;
+  transform: translate(-50%);
+  margin-bottom: 12px;
+  position: relative;
+}
+
+.game-right {
+  left:200%;
+}

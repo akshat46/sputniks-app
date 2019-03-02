@@ -1,7 +1,5 @@
 const canvas = document.getElementById('header_animation');
 const con = canvas.getContext('2d');
-con.canvas.width  = window.innerWidth;
-con.canvas.height = window.innerHeight*0.50;
 const CANVAS_WIDTH = canvas.width;
 const CANVAS_HEIGHT = canvas.height;
 let num_circles = 100;
