@@ -1,6 +1,11 @@
+feather.replace();
+
+var map;
+var geocoder;
 
 function initMap() {
   console.log("here");
+  geocoder = new google.maps.Geocoder();
   map = new google.maps.Map(document.getElementById('map'), {
     center: {lat: 37.334594, lng: -121.882195},
     zoom: 14
@@ -33,5 +38,21 @@ function initMap() {
     position: marker4,
     map: map,
     title: 'Restaurant 4'
+  });
+}
+
+var location_button = document.getElementsByClassName('location-button').item(0);
+var location_field = document.getElementsByClassName('location-field').location;
+var lat;
+var lng;
+
+location_button.onclick = function(){
+console.log("lat: " + lat);
+  geocoder.geocode( { 'address': location_field.value}, function(results, status) {
+    if (status == google.maps.GeocoderStatus.OK) {
+    lat = results[0].geometry.location.lat();
+    lng = results[0].geometry.location.lng();
+    map.setCenter({lat:lat, lng:lng});
+    }
   });
 }

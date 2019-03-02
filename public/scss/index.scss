@@ -3,8 +3,10 @@
 
 * { margin:0; padding:0; }
 
-html { width:100%; height:100%;
-overflow-x: hidden;}
+html {
+	width:100%; height:100%;
+	overflow-x: hidden;
+}
 
 body{
 	margin: 0;
@@ -202,11 +204,34 @@ input[type="checkbox"], input[type="radio"] {
 }
 
 .map-container{
-  @include shadow-l(black, 0.3);
-  position: absolute;
-  margin: 80px auto;
+	width: 900px;
+	height: auto;
+	padding-bottom: 40px;
+	box-sizing: border-box;
+	position: absolute;
+	margin: 80px auto;
 	transition: all 0.6s ease;
 	overflow: hidden;
+	text-align: center;
+	input{
+		display: inline-block;
+		margin-top: 50px;
+		width: 300px;
+	}
+	.location-button{
+		@include shadow(black, 0.3);
+		cursor: pointer;
+		display: inline-block;
+		width: 50px;
+		height: 50px;
+		position: relative;
+		top: 6px;
+		padding-top: 13px;
+		box-sizing: border-box;
+		margin-left: 20px;
+		border-radius: 50%;
+		background: $white2;
+	}
 }
 
 .bubble-chart{
@@ -246,7 +271,7 @@ input[type="checkbox"], input[type="radio"] {
 	transform: translateX(-50%);
 }
 .left-panel{
-	left: -800px;
+	left: -900px;
 	//transform: translateX(0);
 }
 

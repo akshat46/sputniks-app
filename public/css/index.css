@@ -199,13 +199,34 @@ input[type="checkbox"], input[type="radio"] {
   width: 1440px; }
 
 .map-container {
-  -webkit-box-shadow: 0vw 3vh 6vh -2vh rgba(0, 0, 0, 0.3);
-  -moz-box-shadow: 0vw 3vh 6vh -2vh rgba(0, 0, 0, 0.3);
-  box-shadow: 0vw 3vh 6vh -2vh rgba(0, 0, 0, 0.3);
+  width: 900px;
+  height: auto;
+  padding-bottom: 40px;
+  box-sizing: border-box;
   position: absolute;
   margin: 80px auto;
   transition: all 0.6s ease;
-  overflow: hidden; }
+  overflow: hidden;
+  text-align: center; }
+  .map-container input {
+    display: inline-block;
+    margin-top: 50px;
+    width: 300px; }
+  .map-container .location-button {
+    -webkit-box-shadow: 0vw 1vh 3vh -1vh rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0vw 1vh 3vh -1vh rgba(0, 0, 0, 0.3);
+    box-shadow: 0vw 1vh 3vh -1vh rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    position: relative;
+    top: 6px;
+    padding-top: 13px;
+    box-sizing: border-box;
+    margin-left: 20px;
+    border-radius: 50%;
+    background: #F7F7F7; }
 
 .bubble-chart {
   -webkit-box-shadow: 0vw 3vh 6vh -2vh rgba(0, 0, 0, 0.3);
@@ -241,7 +262,7 @@ input[type="checkbox"], input[type="radio"] {
   transform: translateX(-50%); }
 
 .left-panel {
-  left: -800px; }
+  left: -900px; }
 
 .right-panel {
   left: 100%; }

@@ -1,6 +1,9 @@
 @import 'vars';
 
 #map{
+  @include shadow-l(black, 0.3);
+  position: relative;
+  margin: auto;
   border-radius: 20px;
   height: 800px;
   width: 800px;
