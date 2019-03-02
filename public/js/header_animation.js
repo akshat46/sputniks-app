@@ -4,7 +4,7 @@ const CANVAS_WIDTH = canvas.width;
 const CANVAS_HEIGHT = canvas.height;
 let num_circles = 60;
 let circles = [];
-const MAX_RADIUS = 40;
+const MAX_RADIUS = 30;
 let requestAnimationFrame = window.requestAnimationFrame ||
     window.mozRequestAnimationFrame ||
     window.webkitRequestAnimationFrame ||
@@ -12,7 +12,7 @@ let requestAnimationFrame = window.requestAnimationFrame ||
 
 // Create circles
 for(let i=0; i < num_circles; i++){
-    let radius = generateRandom(MAX_RADIUS);
+    let radius = generateRandom(MAX_RADIUS)+15;
     let circle = {
         x: generateRandom(CANVAS_WIDTH - (2*radius)),
         y: generateRandom(CANVAS_HEIGHT - (2*radius)),

@@ -27,7 +27,7 @@ function render(input, out, __component, component, state) {
     out.w("<li class=\"navitem\"><a href=\"/login\">Login</a></li>");
   }
 
-  out.w("<li class=\"navitem\"><a href=\"/\">About</a></li></div></ul><div><canvas style=\"position:relative\" id=\"header_animation\" width=\"1440px\" height=\"500px\"></canvas></div><script src=\"js/header_animation.js\"></script>");
+  out.w("<li class=\"navitem\"><a href=\"/\">About</a></li></div></ul><div><canvas style=\"position:relative\" id=\"header_animation\" width=\"1440px\" height=\"760px\"></canvas></div><script src=\"js/header_animation.js\"></script>");
 
   init_components_tag({}, out);
 
