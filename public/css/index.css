@@ -52,8 +52,8 @@ button {
   border-radius: 25px;
   box-sizing: border-box;
   font-weight: 800;
-  background-color: black;
-  color: white;
+  background-color: white;
+  color: black;
   cursor: pointer;
   transition: all 0.3s ease-in-out; }
   button:focus {
@@ -223,12 +223,16 @@ input[type="checkbox"], input[type="radio"] {
   position: absolute;
   margin: 80px auto;
   transition: all 0.6s ease;
-  overflow: hidden;
-  text-align: center; }
+  overflow: hidden; }
+  .map-container #map-control-panel {
+    display: block;
+    width: 800px;
+    height: 60px;
+    margin: 30px auto 0 auto; }
   .map-container input {
     display: inline-block;
-    margin-top: 50px;
-    width: 300px; }
+    width: 300px;
+    float: left; }
   .map-container .location-button {
     -webkit-box-shadow: 0vw 1vh 3vh -1vh rgba(0, 0, 0, 0.3);
     -moz-box-shadow: 0vw 1vh 3vh -1vh rgba(0, 0, 0, 0.3);
@@ -238,30 +242,33 @@ input[type="checkbox"], input[type="radio"] {
     width: 50px;
     height: 50px;
     position: relative;
-    top: 6px;
+    text-align: center;
     padding-top: 13px;
     box-sizing: border-box;
-    margin-left: 20px;
+    margin-left: 10px;
     border-radius: 50%;
     background: #F7F7F7; }
+  .map-container .snapshot-button {
+    -webkit-box-shadow: 0vw 1vh 3vh -1vh rgba(0, 0, 0, 0.6);
+    -moz-box-shadow: 0vw 1vh 3vh -1vh rgba(0, 0, 0, 0.6);
+    box-shadow: 0vw 1vh 3vh -1vh rgba(0, 0, 0, 0.6);
+    cursor: pointer;
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    position: relative;
+    text-align: center;
+    padding-top: 11px;
+    box-sizing: border-box;
+    float: right;
+    border-radius: 50%;
+    background: white; }
 
 .bubble-chart {
   -webkit-box-shadow: 0vw 3vh 6vh -2vh rgba(0, 0, 0, 0.3);
   -moz-box-shadow: 0vw 3vh 6vh -2vh rgba(0, 0, 0, 0.3);
   box-shadow: 0vw 3vh 6vh -2vh rgba(0, 0, 0, 0.3);
-  position: absolute;
-  width: 800px;
-  background: white;
-  border-radius: 20px;
-  padding: 20px;
-  margin: 80px auto;
-  transition: all 0.6s ease;
-  overflow: hidden; }
-
-.game-panel {
-  -webkit-box-shadow: 0vw 3vh 6vh -2vh rgba(0, 0, 0, 0.3);
-  -moz-box-shadow: 0vw 3vh 6vh -2vh rgba(0, 0, 0, 0.3);
-  box-shadow: 0vw 3vh 6vh -2vh rgba(0, 0, 0, 0.3);
+  z-index: 2;
   position: absolute;
   width: 800px;
   background: white;
@@ -282,7 +289,8 @@ input[type="checkbox"], input[type="radio"] {
     margin: 0 10px;
     box-sizing: border-box; }
   .button-row .selected {
-    background-color: #AE94DE; }
+    background-color: #AE94DE;
+    color: white; }
 
 .dashboard-bg {
   background-color: #F8CB98; }
@@ -291,23 +299,31 @@ input[type="checkbox"], input[type="radio"] {
   left: 50%;
   transform: translateX(-50%); }
 
-.map-panel {
-  left: -100%; }
+.left-panel {
+  left: -900px; }
 
 .right-panel {
   left: 100%; }
 
-.left-panel {
-  right:100%;
-}
 .play-button {
   background-color: #AE94DE;
   left: 50%;
   transform: translate(-50%);
   margin-bottom: 12px;
-  position: relative;
-}
+  position: relative; }
 
 .game-right {
-  left:200%;
-}
+  left: 200%; }
+
+.game-panel {
+  -webkit-box-shadow: 0vw 3vh 6vh -2vh rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0vw 3vh 6vh -2vh rgba(0, 0, 0, 0.3);
+  box-shadow: 0vw 3vh 6vh -2vh rgba(0, 0, 0, 0.3);
+  position: absolute;
+  width: 800px;
+  background: white;
+  border-radius: 20px;
+  padding: 20px;
+  margin: 80px auto;
+  transition: all 0.6s ease;
+  overflow: hidden; }

@@ -1,0 +1,103 @@
+@import 'vars';
+
+.custom-dialog{
+  #bg{
+    z-index: 99;
+    display: block;
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 0.8;
+  }
+  #content{
+    @include shadow-l($white, 0.8);
+    @include center-absolute();
+    z-index: 100;
+    display: block;
+    position: absolute;
+    width: 700px;
+    height: 700px;
+    background-color: $white;
+    border-radius: 20px;
+  }
+  #close{
+    position: relative;
+    background-color: black;
+    border-radius: 50% 20px 50% 50%;
+    width: 50px;
+    height: 50px;
+    top: 0;
+    text-align: center;
+    padding-top: 12px;
+    box-sizing: border-box;
+    z-index: 2;
+    float: right;
+    color: $white;
+    cursor: pointer;
+  }
+  .static-map{
+    position: absolute;
+    width: 100%;
+    height: 80%;
+    bottom: 0;
+    background-color: $duo-2;
+    border-radius: 0 0 20px 20px;
+  }
+  .static-save-button{
+    @include shadow(black, 0.6);
+    cursor: pointer;
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    position: relative;
+    text-align: center;
+    padding-top: 11px;
+    box-sizing: border-box;
+    float: right;
+    border-radius: 50%;
+    color: $white;
+    background: black;
+  }
+  .static-control-panel{
+    position: relative;
+    box-sizing: border-box;
+    padding: 10px;
+    top: 50px;
+    width: 100%;
+    height: 80px;
+  }
+  .zoom-title{
+    position: relative;
+    font-size: 22px;
+    font-weight: bold;
+    //color: $duo-2;
+    top: -20px;
+    text-align: center;
+  }
+}
+
+.zoom-slider{
+  position: inline-block;
+  float: left;
+  width: 500px;
+  margin: auto;
+  border: solid;
+}
+
+.zoom-slider .ui-slider-handle {
+  outline: 0 !important;
+  background: $dark-2 !important;
+  border-radius: 50%;
+  top: -8px !important;
+}
+
+.zoom-slider.ui-slider-horizontal {
+  height: 5px !important;
+  position: relative;
+  margin-left: 100px;
+  width: 400px;
+  border: none;
+  background: $duo-2;
+}

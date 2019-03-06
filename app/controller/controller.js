@@ -189,6 +189,7 @@ module.exports.dashboard = function(req, res) {
         console.log(userDetails[0].city);
         res.marko(templates.dashboard, {city:userDetails[0].city});
     }else{
+        res.marko(templates.dashboard);
         console.log("Nobody is currently logged in!");
         res.redirect("/authentication");
     }

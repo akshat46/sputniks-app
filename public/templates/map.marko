@@ -1,6 +1,10 @@
 <link href="/css/map.css" rel="stylesheet" type="text/css" />
 <div id="map"></div>
-<input class="location-field" name="location" type="text" placeholder="Location"/><div class="location-button"><i data-feather="check"></i></div>
+<div id="map-control-panel">
+  <input class="location-field" name="location" type="text" placeholder="Location"></input>
+  <div class="location-button"><i data-feather="check"></i></div>
+  <div class="snapshot-button"><i data-feather="camera"></i></div>
+</div>
 <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
 <script src="/js/map.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCzGa6kea5GkeVEBjPTEUMq2bwz_X0MoNA&callback=initMap" async defer></script>

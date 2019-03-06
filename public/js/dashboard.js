@@ -22,17 +22,72 @@ b_chart_button.onclick = function(){
   b_chart_button.className = "bubble-button selected";
   map_button.className = "map-button";
   game_button.className = "bubble-button";
-  map_panel.className = "map-container map-panel";
+  map_panel.className = "map-container left-panel";
   b_chart_panel.className = "bubble-chart center-panel";
   game_panel.className = "game-panel right-panel";
 }
 
 game_button.onclick = function() {
-    game_button.className = "bubble-button selected";
-    map_button.className = "map-button";
-    b_chart_button.className = "bubble-button";
-    b_chart_panel.className = "bubble-chart map-panel";
-    map_panel.className = "map-container map-panel";
-    game_panel.className = "game-panel center-panel";
+  game_button.className = "bubble-button selected";
+  map_button.className = "map-button";
+  b_chart_button.className = "bubble-button";
+  b_chart_panel.className = "bubble-chart left-panel";
+  map_panel.className = "map-container left-panel";
+  game_panel.className = "game-panel center-panel";
+}
+
+// static map dialog
+var map_src = 'https://maps.googleapis.com/maps/api/staticmap?key=AIzaSyCzGa6kea5GkeVEBjPTEUMq2bwz_X0MoNA&size=700x560';
+var center = '&center=';
+var zoom = '&zoom=';
+
+$(".snapshot-button").click(function(){
+  generate_map(14);
+  init_dialog();
+  $(".custom-dialog #close").click(function(){
+    $(".custom-dialog").empty();
+  });
+});
+
+function generate_map(zoom_value){
+  var lat = map.getCenter().lat();
+  var lng =  map.getCenter().lng();
+  center += lat + ',' + lng;
+  map_src += center;
+  var z = zoom + zoom_value;
+  map_src += z;
+}
+
+function init_dialog(){
+  console.log(map_src);
+  var close_svg = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>';
+  var save_svg = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-save"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path><polyline points="17 21 17 13 7 13 7 21"></polyline><polyline points="7 3 7 8 15 8"></polyline></svg>';
+  $(".custom-dialog").html(
+    '<div id="bg"></div><div id="content"><div id="close">'+ close_svg + '</div><div class="static-control-panel"><div class="zoom-title">Selected Zoom Level: Normal</div><div class="zoom-slider"></div><div class="static-save-button">' + save_svg + '</div></div><img class="static-map" src="' + map_src + '"/></div>'
+  );
+
+  $(".zoom-slider").slider({
+    min: 1,
+    max: 3,
+    stop: function( event, ui){
+      console.log("val: " + ui.value);
+      if(ui.value ==1){
+        $(".zoom-title").text("Selected Zoom Level: Far");
+        generate_map(10);
+        //$(".static-map").attr("src",map_src);
+        $('.static-map').removeAttr("src").attr("src", map_src);
+      }
+      if(ui.value == 2){
+        $(".zoom-title").text("Selected Zoom Level: Normal");
+        generate_map(14);
+        $(".static-map").attr("src",map_src);
+      }
+      if(ui.value == 3){
+        $(".zoom-title").text("Selected Zoom Level: Near");
+        generate_map(18);
+        $(".static-map").attr("src", map_src);
+      }
+    }
+  });
 
 }

@@ -1,0 +1,104 @@
+.custom-dialog #bg {
+  z-index: 99;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  opacity: 0.8; }
+
+.custom-dialog #content {
+  -webkit-box-shadow: 0vw 3vh 6vh -2vh rgba(255, 255, 255, 0.8);
+  -moz-box-shadow: 0vw 3vh 6vh -2vh rgba(255, 255, 255, 0.8);
+  box-shadow: 0vw 3vh 6vh -2vh rgba(255, 255, 255, 0.8);
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  z-index: 100;
+  display: block;
+  position: absolute;
+  width: 700px;
+  height: 700px;
+  background-color: white;
+  border-radius: 20px; }
+
+.custom-dialog #close {
+  position: relative;
+  background-color: black;
+  border-radius: 50% 20px 50% 50%;
+  width: 50px;
+  height: 50px;
+  top: 0;
+  text-align: center;
+  padding-top: 12px;
+  box-sizing: border-box;
+  z-index: 2;
+  float: right;
+  color: white;
+  cursor: pointer; }
+
+.custom-dialog .static-map {
+  position: absolute;
+  width: 100%;
+  height: 80%;
+  bottom: 0;
+  background-color: #AE94DE;
+  border-radius: 0 0 20px 20px; }
+
+.custom-dialog .static-save-button {
+  -webkit-box-shadow: 0vw 1vh 3vh -1vh rgba(0, 0, 0, 0.6);
+  -moz-box-shadow: 0vw 1vh 3vh -1vh rgba(0, 0, 0, 0.6);
+  box-shadow: 0vw 1vh 3vh -1vh rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  position: relative;
+  text-align: center;
+  padding-top: 11px;
+  box-sizing: border-box;
+  float: right;
+  border-radius: 50%;
+  color: white;
+  background: black; }
+
+.custom-dialog .static-control-panel {
+  position: relative;
+  box-sizing: border-box;
+  padding: 10px;
+  top: 50px;
+  width: 100%;
+  height: 80px; }
+
+.custom-dialog .zoom-title {
+  position: relative;
+  font-size: 22px;
+  font-weight: bold;
+  top: -20px;
+  text-align: center; }
+
+.zoom-slider {
+  position: inline-block;
+  float: left;
+  width: 500px;
+  margin: auto;
+  border: solid; }
+
+.zoom-slider .ui-slider-handle {
+  outline: 0 !important;
+  background: #6E5E8C !important;
+  border-radius: 50%;
+  top: -8px !important; }
+
+.zoom-slider.ui-slider-horizontal {
+  height: 5px !important;
+  position: relative;
+  margin-left: 100px;
+  width: 400px;
+  border: none;
+  background: #AE94DE; }
