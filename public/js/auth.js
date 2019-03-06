@@ -31,23 +31,5 @@ function handler(e) {
 		}
 	}
 }
-//console.log("field: " + validation.item(0));
+
 document.addEventListener('keyup', handler)
-//document.attachEvent('onkeydown', handler)
-// if (document.attachEvent) document.attachEvent('onkeydown', handler);
-// else document.addEventListener('keydown', handler);
-
-function hasClass(el, className) {
-	return el.classList ? el.classList.contains(className) : new RegExp('\\b'+ className+'\\b').test(el.className);
-}
-
-function addClass(el, className) {
-	console.log("here");
-	if (el.classList) el.classList.add(className);
-	else if (!hasClass(el, className)) el.className += ' ' + className;
-}
-
-function removeClass(el, className) {
-	if (el.classList) el.classList.remove(className);
-	else el.className = el.className.replace(new RegExp('\\b'+ className+'\\b', 'g'), '');
-}

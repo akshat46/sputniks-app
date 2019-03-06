@@ -47,12 +47,11 @@ var lat;
 var lng;
 
 location_button.onclick = function(){
-console.log("lat: " + lat);
   geocoder.geocode( { 'address': location_field.value}, function(results, status) {
     if (status == google.maps.GeocoderStatus.OK) {
-    lat = results[0].geometry.location.lat();
-    lng = results[0].geometry.location.lng();
-    map.setCenter({lat:lat, lng:lng});
+      lat = results[0].geometry.location.lat();
+      lng = results[0].geometry.location.lng();
+      map.setCenter({lat:lat, lng:lng});
     }
   });
 }
