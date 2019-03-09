@@ -1,0 +1,39 @@
+<html>
+<head>
+    <title>About Page</title>
+    <link href="/css/index.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
+    <link href="/css/jquery-ui.css" rel="stylesheet" type="text/css" />
+    <link href="/css/about.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+
+<ul class="navbar">
+    <div class="container">
+        <li class="navitem brand"><a href="/">Sputniks</a></li>
+        <if(input.logged)>
+        <li class="navitem"><a href="/logout">Log out</a></li>
+        <li class="navitem"><a href="/dashboard">Dashboard</a></li>
+        </if>
+        <else>
+            <li class="navitem"><a href="/login">Login</a></li>
+        </else>
+        <li class="navitem"><a href="/about">About</a></li>
+    </div>
+</ul>
+
+<div id="tabs">
+    <ul>
+        <li><a href="templates/project_details.html">About</a></li>
+        <li><a href="templates/team.html">Team</a></li>
+        <li><a href="templates/technology.html">Technologies</a></li>
+    </ul>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+<script src="js/about.js"></script>
+<script src="js/header_animation.js"></script>
+</body>
+</html>

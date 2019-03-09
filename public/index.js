@@ -9,4 +9,5 @@ exports.protected = require("./templates/protected");
 exports.register = require("./templates/register");
 exports.dashboard = require("./templates/dashboard");
 exports.details = require("./templates/details");
+exports.about = require("./templates/about");
 

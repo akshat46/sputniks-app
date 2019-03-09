@@ -28,10 +28,6 @@ router.get('/logout', controller.get_logout);
 
 router.get('/protected', controller.loggedIn, controller.get_protected);
 
-router.get('/about', function(req, res) {
-  res.send("about page");
-});
-
 router.get('/dashboard', controller.dashboard);
 
 router.post('/dashboard', controller.dashboard);
@@ -39,6 +35,8 @@ router.post('/dashboard', controller.dashboard);
 router.get('/dataSearch', controller.data_search);
 
 router.get('/details', controller.details);
+
+router.get('/about', controller.get_about);
 
 // router.post('/dataentry', controller.dataentry);
 

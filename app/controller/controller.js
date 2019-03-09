@@ -224,3 +224,7 @@ module.exports.data_search = function(req, res)
     //     res.redirect("/login");
     // }
 };
+
+module.exports.get_about = function(req, res) {
+    res.marko(templates.about);
+};
