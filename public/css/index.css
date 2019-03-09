@@ -327,3 +327,79 @@ input[type="checkbox"], input[type="radio"] {
   margin: 80px auto;
   transition: all 0.6s ease;
   overflow: hidden; }
+
+.food-preference-panel {
+  box-shadow: 0vw 3vh 6vh -2vh rgba(0, 0, 0, 0.3);
+  position: absolute;
+  width: 800px;
+  background: white;
+  border-radius: 20px;
+  padding: 20px;
+  margin: 80px auto;
+  transition: all 0.6s ease;
+  overflow: hidden; }
+
+#selectionSlots {
+    margin: 50px auto 0 auto;
+    background: #ddf;
+}
+
+#selectionPile {
+    margin: 0 auto;
+    background: #ffd;
+}
+
+#selectionSlots, #selectionPile {
+    width: 80%;
+    height: 100px;
+    padding: 10px;
+    padding-top: 2%;
+    border: 2px solid #333;
+    border-radius: 10px;
+    box-shadow: 0 0 .6em rgba(0, .2, 0, .8);
+}
+
+#selectionSlots div, #selectionPile div {
+    float: left;
+    width: 80px;
+    height: 80px;
+    padding: 5px;
+    padding-top: 10px;
+    padding-bottom: 0;
+    border: 2px solid #333;
+    border-radius: 50%;
+    margin: 0 0 0 5px;
+    background: #fff;
+}
+
+#selectionSlots div:first-child, #selectionPile div:first-child {
+    margin-left: 3.5%;
+}
+
+#selectionSlots div.hovered {
+    background: #aaa;
+}
+
+#selectionSlots div {
+    border-style: dashed;
+    text-align: center;
+}
+
+#selectionPile div {
+    background: #666;
+    color: #fff;
+    font-size: 15px;
+    text-shadow: 0 0 3px #000;
+    text-align: center;
+}
+
+#selectionPile div.ui-draggable-dragging {
+    box-shadow: 0 0 .5em rgba(0, 0, 0, .8);
+}
+
+#card0.addColor { background: #ff26bf; }
+#card1.addColor { background: #ff9427; }
+#card2.addColor { background: #3095e2; }
+#card3.addColor { background: #7500ff; }
+#card4.addColor { background: #28ff00; }
+#card5.addColor { background: #c45cd6; }

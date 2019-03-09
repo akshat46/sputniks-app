@@ -1,10 +1,12 @@
 var map_button = document.getElementsByClassName('map-button').item(0);
 var b_chart_button = document.getElementsByClassName('bubble-button').item(0);
 var game_button = document.getElementsByClassName('game-button').item(0);
+var food_preference_button = document.getElementsByClassName('food-preference-button').item(0);
 
 var map_panel = document.getElementsByClassName('map-container').item(0);
 var b_chart_panel = document.getElementsByClassName('bubble-chart').item(0);
 var game_panel = document.getElementsByClassName('game-panel').item(0);
+var food_preference_panel = document.getElementsByClassName('food-preference-panel').item(0);
 
 
 console.log(map_button)
@@ -13,27 +15,44 @@ map_button.onclick = function(){
   map_button.className = "map-button selected";
   b_chart_button.className = "bubble-button";
   game_button.className = "bubble-button";
+  food_preference_button.className = "food-preference-button";
   map_panel.className = "map-container center-panel";
   b_chart_panel.className = "bubble-chart right-panel";
   game_panel.className = "game-panel right-panel";
+  food_preference_panel.className = "food-preference-panel right-panel";
 }
 
 b_chart_button.onclick = function(){
   b_chart_button.className = "bubble-button selected";
   map_button.className = "map-button";
   game_button.className = "bubble-button";
+  food_preference_button.className = "food-preference-button";
   map_panel.className = "map-container left-panel";
   b_chart_panel.className = "bubble-chart center-panel";
   game_panel.className = "game-panel right-panel";
+  food_preference_panel.className = "food-preference-panel right-panel";
 }
 
 game_button.onclick = function() {
   game_button.className = "bubble-button selected";
   map_button.className = "map-button";
   b_chart_button.className = "bubble-button";
+  food_preference_button.className = "food-preference-button";
   b_chart_panel.className = "bubble-chart left-panel";
   map_panel.className = "map-container left-panel";
   game_panel.className = "game-panel center-panel";
+  food_preference_panel.className = "food-preference-panel right-panel";
+}
+
+food_preference_button.onclick = function() {
+    food_preference_button.className = "food-preference-button selected";
+    game_button.className = "bubble-button";
+    map_button.className = "map-button";
+    b_chart_button.className = "bubble-button";
+    b_chart_panel.className = "bubble-chart left-panel";
+    map_panel.className = "map-container left-panel";
+    game_panel.className = "game-panel left-panel";
+    food_preference_panel.className = "food-preference-panel center-panel";
 }
 
 // static map dialog
@@ -91,3 +110,50 @@ function init_dialog(){
   });
 
 }
+
+
+$(".food-preference-button").click(init);
+
+
+var disabledSlots = 0;
+function init() {
+
+    $('#selectionPile').html( '' );
+    $('#selectionSlots').html( '' );
+
+    var food_choices = [ "Maxican", "Indian", "Italian", "French", "Thai", "Any other, You can add it later" ];
+
+    for ( var i=0; i<6; i++ ) {
+        $('<div>' + food_choices[i] + '</div>').data( 'number', food_choices[i] ).attr( 'id', 'card'+i ).appendTo( '#selectionPile' ).draggable( {
+            containment: '#content',
+            stack: '#selectionPile div',
+            cursor: 'move',
+            revert: true
+        } );
+    }
+
+    var preferences = [ '1st', '2nd', '3rd', '4th', '5th','All other' ];
+    for ( var i=1; i<=6; i++ ) {
+        $('<div>' + preferences[i-1] + '</div>').data( 'number', i ).appendTo( '#selectionSlots' ).droppable( {
+            accept: '#selectionPile div',
+            hoverClass: 'hovered',
+            drop: handleCardDrop
+        } );
+    }
+
+}
+
+function handleCardDrop(event, ui) {
+
+        ui.draggable.addClass('addColor');
+        ui.draggable.draggable('disable');
+        $(this).droppable('disable');
+        ui.draggable.position({
+            of: $(this), my: 'left top', at: 'left top'
+        });
+        ui.draggable.draggable('option', 'revert', false);
+        disabledSlots++;
+        if(disabledSlots === 6)
+            alert("Your response has been recorded");
+}
+
