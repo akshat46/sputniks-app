@@ -93,7 +93,7 @@ function init_dialog(){
     let map_obj = {src: map_src, id: id};
     saved_maps.push(map_obj);
 
-    var $draggable = $( '<div class="saved-map" id="' + id + '"></div>' );
+    var $draggable = $( '<div class="saved-map" id="' + id + '"><div class="footer">Resizeable, Draggable</div></div>' );
     var $address = $('<div class="address"></div>');
     $draggable.append($address);
     $("body").append($draggable);
@@ -177,6 +177,8 @@ function setDraggable(){
       }
     }
   });
+
+  $(".saved-map").resizable();
 }
 
 
@@ -224,4 +226,3 @@ function handleCardDrop(event, ui) {
         if(disabledSlots === 6)
             alert("Your response has been recorded");
 }
-
