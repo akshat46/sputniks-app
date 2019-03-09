@@ -27,11 +27,11 @@ function render(input, out, __component, component, state) {
     out.w("<li class=\"navitem\"><a href=\"/login\">Login</a></li>");
   }
 
-  out.w("<li class=\"navitem\"><a href=\"/about\">About</a></li></div></ul><div id=\"tabs\"><ul><li><a href=\"templates/project_details.html\">About</a></li><li><a href=\"templates/team.html\">Team</a></li><li><a href=\"templates/technology.html\">Technologies</a></li></ul></div><script src=\"https://code.jquery.com/jquery-3.3.1.min.js\"></script><script src=\"https://code.jquery.com/ui/1.12.0/jquery-ui.min.js\"></script><script src=\"js/about.js\"></script><script src=\"js/header_animation.js\"></script>");
+  out.w("<li class=\"navitem\"><a href=\"/about\">About</a></li></div></ul><div id=\"tabs\"><ul><li><a href=\"templates/project_details.html\">About</a></li><li><a href=\"templates/team.html\">Team</a></li><li><a href=\"templates/technology.html\">Technologies</a></li></ul></div><script src=\"https://code.jquery.com/jquery-3.3.1.min.js\"></script><script src=\"https://code.jquery.com/ui/1.12.0/jquery-ui.min.js\"></script><script src=\"js/about.js\"></script>");
 
   init_components_tag({}, out);
 
-  await_reorderer_tag({}, out, __component, "32");
+  await_reorderer_tag({}, out, __component, "31");
 
   out.w("</body></html>");
 }
