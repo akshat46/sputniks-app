@@ -51,3 +51,12 @@ $image: url('https://i.imgur.com/vDhRJV5.jpg');
 	-moz-box-shadow: none;
 	box-shadow: none;
 }
+
+@mixin grabbing-cursor {
+  cursor: url('https://www.google.com/intl/en_ALL/mapfiles/closedhand.cur'), all-scroll;
+  cursor: -webkit-grabbing;
+  cursor: -moz-grabbing;
+  cursor: -o-grabbing;
+  cursor: -ms-grabbing;
+  cursor: grabbing;
+}

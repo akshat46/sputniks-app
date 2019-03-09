@@ -6,9 +6,6 @@ var map_panel = document.getElementsByClassName('map-container').item(0);
 var b_chart_panel = document.getElementsByClassName('bubble-chart').item(0);
 var game_panel = document.getElementsByClassName('game-panel').item(0);
 
-
-console.log(map_button)
-
 map_button.onclick = function(){
   map_button.className = "map-button selected";
   b_chart_button.className = "bubble-button";
@@ -37,9 +34,10 @@ game_button.onclick = function() {
 }
 
 // static map dialog
-var map_src = 'https://maps.googleapis.com/maps/api/staticmap?key=AIzaSyCzGa6kea5GkeVEBjPTEUMq2bwz_X0MoNA&size=700x560';
-var center = '&center=';
-var zoom = '&zoom=';
+
+var saved_maps = [];
+var map_src = "";
+var id = 0;
 
 $(".snapshot-button").click(function(){
   generate_map(14);
@@ -50,44 +48,114 @@ $(".snapshot-button").click(function(){
 });
 
 function generate_map(zoom_value){
+  let map_src = 'https://maps.googleapis.com/maps/api/staticmap?key=AIzaSyCzGa6kea5GkeVEBjPTEUMq2bwz_X0MoNA&size=700x560';
+  var center = '&center=';
+  var zoom = '&zoom=';
   var lat = map.getCenter().lat();
   var lng =  map.getCenter().lng();
   center += lat + ',' + lng;
   map_src += center;
   var z = zoom + zoom_value;
   map_src += z;
+  return map_src;
 }
 
 function init_dialog(){
-  console.log(map_src);
+  map_src = generate_map(14);
   var close_svg = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>';
   var save_svg = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-save"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path><polyline points="17 21 17 13 7 13 7 21"></polyline><polyline points="7 3 7 8 15 8"></polyline></svg>';
   $(".custom-dialog").html(
-    '<div id="bg"></div><div id="content"><div id="close">'+ close_svg + '</div><div class="static-control-panel"><div class="zoom-title">Selected Zoom Level: Normal</div><div class="zoom-slider"></div><div class="static-save-button">' + save_svg + '</div></div><img class="static-map" src="' + map_src + '"/></div>'
+    '<div id="bg"></div><div id="content"><div id="close">'+ close_svg + '</div><div class="static-control-panel"><div class="zoom-title">Selected Zoom Level: Normal</div><div class="zoom-slider"></div><div class="static-save-button">' + save_svg + '</div></div><img class="static-map" src="' + generate_map(14) + '"/></div>'
   );
+
+  $(".static-save-button").click(function(){
+    $(".custom-dialog").empty();
+    id += 1;
+    let map_obj = {src: map_src, id: id};
+    saved_maps.push(map_obj);
+
+    var $draggable = $( '<div class="saved-map" id="' + id + '"></div>' );
+    var $address = $('<div class="address"></div>');
+    $draggable.append($address);
+    $("body").append($draggable);
+
+    let $map_preview = $('<div class="map_preview"></div>');
+    $("body").append($map_preview);
+
+    geocoder.geocode({'location': map.getCenter()}, function(results, status) {
+      if (results[0]) {
+        $address.text(results[0].formatted_address);
+      } else {
+        window.alert('No results found');
+      }
+    });
+    setDraggable();
+  });
 
   $(".zoom-slider").slider({
     min: 1,
     max: 3,
+    value: 2,
     stop: function( event, ui){
-      console.log("val: " + ui.value);
       if(ui.value ==1){
         $(".zoom-title").text("Selected Zoom Level: Far");
-        generate_map(10);
-        //$(".static-map").attr("src",map_src);
-        $('.static-map').removeAttr("src").attr("src", map_src);
+        $('.static-map').removeAttr("src").attr("src", generate_map(10));
+        map_src = generate_map(10);
       }
       if(ui.value == 2){
         $(".zoom-title").text("Selected Zoom Level: Normal");
-        generate_map(14);
-        $(".static-map").attr("src",map_src);
+        map_src = generate_map(14);
+        $(".static-map").removeAttr("src").attr("src", generate_map(14));
       }
       if(ui.value == 3){
         $(".zoom-title").text("Selected Zoom Level: Near");
-        generate_map(18);
-        $(".static-map").attr("src", map_src);
+        map_src = generate_map(18);
+        $(".static-map").removeAttr("src").attr("src", generate_map(18));
       }
     }
   });
+}
 
+function setDraggable(){
+  var direction;
+  var lastx = 0;
+  var moving = false;
+
+  $( ".saved-map" ).draggable({
+    addClasses: false,
+    start: function(){moving = true;},
+    drag: function(){
+      var xPos = $(this).offset().left;
+      var dx = xPos - lastx;
+      if(dx > 0){
+        $(this).css({'transform' : 'rotate(8deg)'});
+      }
+      else if(dx <= 0){
+        $(this).css({'transform' : 'rotate(-8deg)'});
+      }
+      lastx = xPos;
+    },
+    stop: function(){
+      moving = false;
+      lastx = 0;
+      $(this).css({'transform' : 'rotate(0)'});
+    }
+  });
+
+  $(".saved-map").click(function(){
+    if(!moving){
+      for(map of saved_maps){
+        if(map.id==$(this).attr('id')){
+          let img_src = map.src;
+          $(".map_preview").prepend('<img src = "' + img_src + '" />');
+          $(".map_preview").dialog({
+            width: 680, height:600,
+            close: function(){
+              $(".map_preview").empty();
+            }
+          });
+        }
+      }
+    }
+  });
 }

@@ -102,3 +102,36 @@
   width: 400px;
   border: none;
   background: #AE94DE; }
+
+.saved-map {
+  -webkit-box-shadow: 0vw 1vh 3vh -1vh rgba(0, 0, 0, 0.6);
+  -moz-box-shadow: 0vw 1vh 3vh -1vh rgba(0, 0, 0, 0.6);
+  box-shadow: 0vw 1vh 3vh -1vh rgba(0, 0, 0, 0.6);
+  display: block;
+  position: absolute;
+  box-sizing: border-box;
+  padding: 20px;
+  bottom: 20px;
+  left: 20px;
+  width: 300px;
+  height: 100px;
+  background-color: white;
+  border-radius: 15px;
+  transform: rotate(0deg);
+  cursor: hand;
+  transition: transform .3s; }
+  .saved-map:active {
+    cursor: url("https://www.google.com/intl/en_ALL/mapfiles/closedhand.cur"), all-scroll;
+    cursor: -webkit-grabbing;
+    cursor: -moz-grabbing;
+    cursor: -o-grabbing;
+    cursor: -ms-grabbing;
+    cursor: grabbing; }
+  .saved-map .address {
+    font-size: 18px;
+    color: black;
+    opacity: 0.8;
+    text-align: left; }
+
+.map_preview {
+  display: none; }
