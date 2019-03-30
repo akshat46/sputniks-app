@@ -218,6 +218,21 @@ module.exports.dashboard = function(req, res) {
 }
 
 
+
+module.exports.delete_user = function(req, res) {
+    let currentUser = req.session.user[0];
+    let User = mongoose.model('app_users');
+    User.deleteOne( { username: currentUser.username }, function (err, data) {
+        console.log('DELETE ERR', err);
+        console.log('DELETE data', data);
+        res.marko(templates.home, { message: 'Your profile has been deleted'});
+    });
+}
+
+
+
+
+
 module.exports.editUser = function(req, res) {
 
     if (req.session.user){

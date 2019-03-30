@@ -36,6 +36,8 @@ router.post('/details', controller.editUser);
 
 router.get('/dataSearch', controller.data_search);
 
+router.get('/delete-user', controller.delete_user);
+
 router.get('/about', controller.get_about);
 
 // router.post('/dataentry', controller.dataentry);
