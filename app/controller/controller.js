@@ -227,6 +227,7 @@ module.exports.delete_user = function(req, res) {
         console.log('DELETE data', data);
         res.marko(templates.home, { message: 'Your profile has been deleted'});
     });
+    req.session.destroy();
 }
 
 
