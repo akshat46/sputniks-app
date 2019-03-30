@@ -17,7 +17,7 @@ var marko_template = module.exports = require("marko/src/html").t(__filename),
 function render(input, out, __component, component, state) {
   var data = input;
 
-  out.w("<html><head></head><link href=\"/css/index.css\" rel=\"stylesheet\" type=\"text/css\"><script type=\"text/javascript\" src=\"https://d3js.org/d3.v4.min.js\"></script><body>");
+  out.w("<html><head></head><link href=\"/css/index.css\" rel=\"stylesheet\" type=\"text/css\"><link href=\"/css/auth.css\" rel=\"stylesheet\" type=\"text/css\"><script type=\"text/javascript\" src=\"https://d3js.org/d3.v4.min.js\"></script><body>");
 
   component_globals_tag({}, out);
 
@@ -105,7 +105,7 @@ function render(input, out, __component, component, state) {
 
   init_components_tag({}, out);
 
-  await_reorderer_tag({}, out, __component, "66");
+  await_reorderer_tag({}, out, __component, "67");
 
   out.w("</body><script src=\"/js/validations.js\"></script></html>");
 }

@@ -27,6 +27,8 @@
   overflow: hidden;
   background-color: white;
   border-radius: 20px; }
+  #panel-box .form {
+    overflow-y: scroll; }
 
 .panel {
   display: inline-block;
