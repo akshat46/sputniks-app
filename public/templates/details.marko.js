@@ -21,7 +21,7 @@ function render(input, out, __component, component, state) {
 
   component_globals_tag({}, out);
 
-  out.w("<div id=\"background\"><div id=\"panel-box\"><form class=\"form\" action=\"/details\" method=\"POST\"><p> " +
+  out.w("<div id=\"background\"><div id=\"panel-box\"><form class=\"form\" action=\"/details\" method=\"POST\"><p style=\"color:blue;font-size: 16px;\"> " +
     marko_escapeXml(input.message) +
     "</p><label class=\"modal-label\" for=\"firstname\">First Name</label><input class=\"modal-input\" id=\"firstname\" name=\"firstname\" type=\"text\" required=\"required\" placeholder=\"First Name\"" +
     marko_attr("value", "" + input.user.firstname) +

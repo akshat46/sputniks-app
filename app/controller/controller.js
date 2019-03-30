@@ -140,7 +140,7 @@ module.exports.post_login = function(req, res)
     User.find({username: user.username, password: user.password}, function (err, data) {
 
         console.log("DATA", data);
-        if (!data) {
+        if (!data.length) {
             res.marko(templates.auth, {message: "Invalid credentials!"});
         }
         else {

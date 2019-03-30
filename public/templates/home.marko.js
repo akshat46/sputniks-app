@@ -24,7 +24,7 @@ function render(input, out, __component, component, state) {
   if (input.logged) {
     out.w("<li class=\"navitem\"><a href=\"/logout\">Log out</a></li><li class=\"navitem\"><a href=\"/dashboard\">Dashboard</a></li>");
   } else {
-    out.w("<li class=\"navitem\"><a href=\"/login\">Login</a></li>");
+    out.w("<li class=\"navitem\"><a href=\"/login\">Login/Register</a></li>");
   }
 
   out.w("<li class=\"navitem\"><a href=\"/about\">About</a></li></div></ul><div><canvas style=\"position:relative\" id=\"header_animation\" width=\"1440px\" height=\"760px\"></canvas></div><script src=\"js/header_animation.js\"></script>");
