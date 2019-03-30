@@ -30,7 +30,7 @@ router.get('/protected', controller.loggedIn, controller.get_protected);
 
 router.get('/dashboard', controller.dashboard);
 
-router.post('/dashboard', controller.dashboard);
+router.post('/dashboard', controller.dataentry);
 
 router.get('/dataSearch', controller.data_search);
 

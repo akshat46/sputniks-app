@@ -15,7 +15,7 @@ const port = 3000;
 const Schema = mongoose.Schema;
 
 let yelpUser = new Schema({}, {collection: 'yelp_users'});
-let appUsers = new Schema({username:String, password:String});
+let appUsers = new Schema({username:String, password:String, firstname: String, lastname: String, city: String, state: String, zipcode: String, food: String, notification: String});
 
 mongoose.connect('mongodb://admin:cmpe280admin@ds151820.mlab.com:51820/sputniks');
 

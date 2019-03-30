@@ -1,10 +1,12 @@
 // Controller file
-
+var mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 const templates = require("../../public");
 const path=require('path');
 
 var registeredUsers = [];
 var userDetails = [];
+
 
 module.exports.root = function(req, res, next){
 var logged;
@@ -64,38 +66,55 @@ module.exports.post_register = function(req, res)
     }
     else
     {
-        // Create an array of users with matching usernames.
-        var matches = registeredUsers.filter(function(user)
-                      {
-                          return user.username === req.body.username;
-                      });
+        let User = mongoose.model('app_users');
 
-        // If there is a match, the user has already registered.
-        if (matches.length > 0)
-        {
-            res.marko(templates.auth, {message: "User already registered!"});
-        }
+        User.findOne({ username: req.body.username }, function (err, data) {
+            if (err) {
+                res.marko(templates.auth);
+            }
+            if (data && data.username == req.body.username) {
+                res.marko(templates.auth, {message: "User already registered!"});
+            }
+            else {
+                User.create({ username: req.body.username, password: req.body.password, zipcode: '', city: '', state: '', notification: '', food: '', firstname: '', lastname: '' });
 
-        // Register a new user.
-        else
-        {
-            var newUser = { username: req.body.username,
-                            password: req.body.password };
-            registeredUsers.push(newUser);
-            console.log("New user:"); console.log(newUser);
-            console.log("Registered users:"); console.log(registeredUsers);
-            /**/
-            req.session.user = newUser;
-            console.log("Sucessfully logged in:");
-            console.log(req.session.user.username);
+                res.marko(templates.auth);
+            }
+        })
 
-            res.marko(templates.auth);
 
-            // res.marko(templates.loggedIn,
-            //   { name: req.session.user.username });
-            /**/
-            // res.redirect('/');
-        }
+        // // Create an array of users with matching usernames.
+        // var matches = registeredUsers.filter(function(user)
+        //               {
+        //                   return user.username === req.body.username;
+        //               });
+        //
+        // // If there is a match, the user has already registered.
+        // if (matches.length > 0)
+        // {
+        //     res.marko(templates.auth, {message: "User already registered!"});
+        // }
+        //
+        // // Register a new user.
+        // else
+        // {
+        //     var newUser = { username: req.body.username,
+        //                     password: req.body.password };
+        //     registeredUsers.push(newUser);
+        //     console.log("New user:"); console.log(newUser);
+        //     console.log("Registered users:"); console.log(registeredUsers);
+        //     /**/
+        //     req.session.user = newUser;
+        //     console.log("Sucessfully logged in:");
+        //     console.log(req.session.user.username);
+        //
+        //     res.marko(templates.auth);
+        //
+        //     // res.marko(templates.loggedIn,
+        //     //   { name: req.session.user.username });
+        //     /**/
+        //     // res.redirect('/');
+        // }
     }
 };
 
@@ -112,31 +131,26 @@ module.exports.get_login = function(req, res)
  */
 module.exports.post_login = function(req, res)
 {
-    console.log("Registered users:"); console.log(registeredUsers);
-    console.log("Logging in: " + req.body.username + "/" + req.body.password);
 
-    // Create an array of users with matching credentials.
-    var matches = registeredUsers.filter(function(user)
-                  {
-                      return    (user.username === req.body.username)
-                             && (user.password === req.body.password);
-                  });
+    let user = req.body;
 
-    console.log("Matching credentials: "); console.log(matches);
+    let User = mongoose.model('app_users');
 
-    if (matches.length === 0)
-    {
-        res.marko(templates.auth, {message: "Invalid credentials!"});
-    }
-    else
-    {
-        // The user is logged in for this session.
-        req.session.user = matches[0];
-        console.log("Sucessfully logged in:");
-        console.log(req.session.user.username);
 
-        res.redirect('/dashboard');
-    }
+    User.find({username: user.username, password: user.password}, function (err, data) {
+
+        console.log("DATA", data);
+        if (!data) {
+            res.marko(templates.auth, {message: "Invalid credentials!"});
+        }
+        else {
+            console.log("USER FOUND", data);
+            // The user is logged in for this session.
+            req.session.user = data;
+            console.log(req.session.user.username);
+            res.redirect('/dashboard');
+        }
+    });
 };
 
 /*
@@ -205,8 +219,24 @@ module.exports.details = function(req, res) {
 
 
 module.exports.dataentry = function(req, res) {
-    console.log(req.body);
-    res.redirect('/dashboard');
+    console.log(req.session);
+    let user = req.body;
+
+    let User = mongoose.model('app_users');
+
+    User.findOneAndUpdate( {username: req.session.user[0].username}, {
+        firstname: user.firstname,
+        lastname: user.lastname,
+        city: user.city,
+        state: user.state,
+        zipcode: user.zipcode,
+        food: user.food,
+        notification: user.notification
+    }, function (err, data) {
+        console.log("ERROR", err);
+        console.log("DATA", data);
+        res.redirect('/dashboard');
+    });
 }
 
 
