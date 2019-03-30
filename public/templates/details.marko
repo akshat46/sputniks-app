@@ -6,8 +6,9 @@
 <body>
     <div id="background">
         <div id="panel-box">
-            <form class="form" action="/details" method="POST">
 
+            <form class="form" action="/details" method="POST">
+                <p> ${input.message}</p>
                 <label class="modal-label" for="firstname">First Name</label>
                 <input class="modal-input" id = "firstname" name="firstname" type="text" required="required" placeholder="First Name" value="${input.user.firstname}"/>
                 <label class="modal-label" for="lastname">First Name</label>
@@ -85,7 +86,8 @@
 
                 <label class="modal-label" >Upload Profile Picture</label>
                 <input type="file" id="avatar" name="avatar" accept="image/*">
-                <button class="button-form" id = "detailSubmit" type="submit">Submit Details</button>
+                <button class="button-form" type="button" onclick="window.location.href ='/dashboard'">Go Back</button>
+                <button class="button-form" id = "detailSubmit" type="submit">Save</button>
             </form>
             <div class="container">
                 <script src="js/details.js"></script>

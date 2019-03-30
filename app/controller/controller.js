@@ -230,7 +230,7 @@ module.exports.editUser = function(req, res) {
         }, function (err, data) {
             console.log("ERROR", err);
             console.log("DATA", data);
-            res.redirect('/dashboard');
+            res.marko(templates.details, {user: data, message: err ? 'Problem saving' : 'User details updated'});
         });
 
     }
