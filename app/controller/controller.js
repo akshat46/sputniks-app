@@ -22,7 +22,11 @@ var logged;
 }
 
 module.exports.get_auth = function(req, res){
-  res.marko(templates.auth);
+    if (req.session.user){
+        res.marko(templates.dashboard);
+    }else{
+        res.marko(templates.auth);
+    }
 };
 
 // middleware
@@ -123,7 +127,12 @@ module.exports.post_register = function(req, res)
  */
 module.exports.get_login = function(req, res)
 {
-   res.marko(templates.login, { message: "Please log in!" });
+    if(req.session.user){
+        res.marko(templates.dashboard);
+    }
+    else{
+        res.marko(templates.login, { message: "Please log in!" });
+    }
 };
 
 /*
