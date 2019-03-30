@@ -214,18 +214,8 @@ module.exports.editUser = function(req, res) {
     let User = mongoose.model('app_users');
     let currentUser = req.session.user[0];
     console.log("METHOD TYPE", req.method);
-    if (req.method == 'GET') {
-        User.findOne({username: currentUser.username}, function (err, data) {
-            if (!data) {
-                res.redirect('/');
-            }
-            else {
-                console.log("EDIT DATA",data);
-                res.marko(templates.details, {user: data});
-            }
-        });
-    }
-    else {
+    console.log('BODY', req.body);
+    if (req.method == 'POST') {
 
         let user = req.body;
 
@@ -241,6 +231,19 @@ module.exports.editUser = function(req, res) {
             console.log("ERROR", err);
             console.log("DATA", data);
             res.redirect('/dashboard');
+        });
+
+    }
+    else {
+
+        User.findOne({username: currentUser.username}, function (err, data) {
+            if (!data) {
+                res.redirect('/');
+            }
+            else {
+                console.log("EDIT DATA",data);
+                res.marko(templates.details, {user: data});
+            }
         });
     }
 }

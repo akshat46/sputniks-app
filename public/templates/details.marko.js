@@ -98,7 +98,7 @@ function render(input, out, __component, component, state) {
     out.w("<input type=\"radio\" name=\"notification\" value=\"yes\"> <div class=\"cbox-label\">Yes</div><input type=\"radio\" name=\"notification\" value=\"no\" checked> <div class=\"cbox-label\">No</div>");
   }
 
-  out.w("<label class=\"modal-label\">Upload Profile Picture</label><input type=\"file\" id=\"avatar\" name=\"avatar\" accept=\"image/*\"><button class=\"button-form\" id=\"detailSubmit\" type=\"Submit\" disabled>Submit Details</button></form><div class=\"container\"><script src=\"js/details.js\"></script></div></div></div>");
+  out.w("<label class=\"modal-label\">Upload Profile Picture</label><input type=\"file\" id=\"avatar\" name=\"avatar\" accept=\"image/*\"><button class=\"button-form\" id=\"detailSubmit\" type=\"submit\">Submit Details</button></form><div class=\"container\"><script src=\"js/details.js\"></script></div></div></div>");
 
   init_components_tag({}, out);
 
