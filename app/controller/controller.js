@@ -135,7 +135,7 @@ module.exports.post_login = function(req, res)
         console.log("Sucessfully logged in:");
         console.log(req.session.user.username);
 
-        res.redirect('/details');
+        res.redirect('/dashboard');
     }
 };
 
