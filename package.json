@@ -15,6 +15,7 @@
     "cookie-parser": "^1.4.4",
     "csvtojson": "^2.0.8",
     "express": "^4.16.4",
+    "express-mongoose": "^0.1.0",
     "express-session": "^1.15.6",
     "lasso-marko": "^2.4.6",
     "marko": "^4.15.2",
