@@ -99,7 +99,7 @@
 }
 
 .auth-form:nth-child(2){
-	height: 350px;
+	height: 450px;
 	z-index: 5;
 	#form-title{
 		@include title();
@@ -117,6 +117,13 @@
 		color: $white;
 		margin: 20px 0;
 	}
+    #password-note{
+		position: relative;
+		display: block;
+        bottom: -100px;
+        text-align: left;
+        color: red;
+    }
 }
 
 #image-side{

@@ -1,9 +1,9 @@
 function validateSignUp(){
     if(validateSignUpUsername() && validateSignUpPassword() ){
-        document.getElementById("SignUpError").innerHTML = "";
+        //document.getElementById("SignUpError").innerHTML = "";
         document.getElementById("ButtonSignUp").disabled = false;
     }else{
-        document.getElementById("SignUpError").innerHTML = "Enter Valid Email and strong Password";
+        //document.getElementById("SignUpError").innerHTML = "Enter Valid Email and strong Password";
         document.getElementById("ButtonSignUp").disabled = true;
     }
 }
@@ -15,7 +15,7 @@ function validateSignUpUsername() {
 }
 
 function validateSignUpPassword() {
-    var passwordCheck = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#$^+=!*()@%&]).{8,18}$/;
+    var passwordCheck = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{6,18}$/;
     if(passwordCheck.test(document.getElementById("SignUpPassword").value))
         return true;
     return false;
@@ -38,7 +38,7 @@ function validateSignInUsername() {
 }
 
 function validateSignInPassword() {
-    var passwordCheck = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#$^+=!*()@%&]).{8,18}$/;
+    var passwordCheck = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{6,18}$/;
     if(passwordCheck.test(document.getElementById("SignInPassword").value))
         return true;
     return false;

@@ -108,7 +108,7 @@
     margin: 20px 0; }
 
 .auth-form:nth-child(2) {
-  height: 350px;
+  height: 450px;
   z-index: 5; }
   .auth-form:nth-child(2) #form-title {
     font-size: 2em;
@@ -124,6 +124,12 @@
     background-color: #AE94DE;
     color: white;
     margin: 20px 0; }
+  .auth-form:nth-child(2) #password-note {
+    position: relative;
+    display: block;
+    bottom: -100px;
+    text-align: left;
+    color: red; }
 
 #image-side {
   position: absolute;
