@@ -101,11 +101,11 @@ function render(input, out, __component, component, state) {
     out.w("<input type=\"radio\" name=\"notification\" value=\"yes\"> <div class=\"cbox-label\">Yes</div><input type=\"radio\" name=\"notification\" value=\"no\" checked> <div class=\"cbox-label\">No</div>");
   }
 
-  out.w("<label class=\"modal-label\">Upload Profile Picture</label><input type=\"file\" id=\"avatar\" name=\"avatar\" accept=\"image/*\"><button class=\"button-form\" type=\"button\" onclick=\"window.location.href ='/dashboard'\">Go Back</button><button class=\"button-form\" id=\"detailSubmit\" type=\"submit\">Save</button></form><div class=\"container\"><script src=\"js/details.js\"></script></div></div></div>");
+  out.w("<label class=\"modal-label\">Upload Profile Picture</label><input type=\"file\" id=\"avatar\" name=\"avatar\" accept=\"image/*\"><button class=\"button-form\" type=\"button\" onclick=\"window.location.href ='/dashboard'\">Go Back</button><button class=\"button-form\" id=\"detailSubmit\" type=\"submit\">Save</button><button class=\"button-form\" type=\"button\" onclick=\"window.location.href ='/delete-user'\">Delete Account</button></form><div class=\"container\"><script src=\"js/details.js\"></script></div></div></div>");
 
   init_components_tag({}, out);
 
-  await_reorderer_tag({}, out, __component, "65");
+  await_reorderer_tag({}, out, __component, "66");
 
   out.w("</body><script src=\"/js/validations.js\"></script></html>");
 }
