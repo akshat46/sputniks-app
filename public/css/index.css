@@ -147,7 +147,6 @@ label {
   top: 0;
   left: 0;
   bottom: 0;
-  overflow: scroll !important;
   right: 0;
   margin: auto;
   -webkit-box-shadow: 0vw 3vh 6vh -2vh rgba(0, 0, 0, 0.4);

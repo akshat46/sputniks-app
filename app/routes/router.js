@@ -18,6 +18,10 @@ router.get('/authentication', controller.get_auth);
 
 router.get('/register',controller.get_auth);
 
+router.get('/friends',controller.get_friends);
+
+router.post('/friends',controller.set_friends);
+
 router.post('/register', controller.post_register);
 
 router.get('/login', controller.get_auth);

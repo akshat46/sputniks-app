@@ -9,20 +9,20 @@ var userDetails = [];
 
 
 module.exports.root = function(req, res, next){
-var logged;
-  if (req.session.user){
-    logged = true;
-  }
-  else{
-    logged = false;
-  }
-  console.log('Cookies: ', req.cookies);
-  console.log(logged);
-  res.marko(templates.home, {logged: logged});
+    var logged;
+    if (req.session.user){
+        logged = true;
+    }
+    else{
+        logged = false;
+    }
+    console.log('Cookies: ', req.cookies);
+    console.log(logged);
+    res.marko(templates.home, {logged: logged});
 }
 
 module.exports.get_auth = function(req, res){
-  res.marko(templates.auth);
+    res.marko(templates.auth);
 };
 
 // middleware
@@ -50,13 +50,12 @@ module.exports.loggedIn = function(req, res, next)
 
 module.exports.get_register = function(req, res, next)
 {
-    res.marko(templates.auth,
-               { message: "Please register!" });
+    res.marko(templates.auth,{ message: "Please register!" });
 };
 
 /*
- * POST registration page.
- */
+* POST registration page.
+*/
 module.exports.post_register = function(req, res)
 {
     if(!req.body.username || !req.body.password)
@@ -119,16 +118,16 @@ module.exports.post_register = function(req, res)
 };
 
 /*
- * GET login page.
- */
+* GET login page.
+*/
 module.exports.get_login = function(req, res)
 {
-   res.marko(templates.login, { message: "Please log in!" });
+    res.marko(templates.login, { message: "Please log in!" });
 };
 
 /*
- * POST login page.
- */
+* POST login page.
+*/
 module.exports.post_login = function(req, res)
 {
 
@@ -154,8 +153,8 @@ module.exports.post_login = function(req, res)
 };
 
 /*
- * GET logout page.
- */
+* GET logout page.
+*/
 module.exports.get_logout = function(req, res)
 {
     console.log("Logging out:");
@@ -185,8 +184,8 @@ module.exports.get_logout = function(req, res)
 };
 
 /*
- * GET protected page.
- */
+* GET protected page.
+*/
 module.exports.get_protected = function(req, res)
 {
     res.marko(templates.protected, { name: req.session.user.username });
@@ -195,7 +194,7 @@ module.exports.get_protected = function(req, res)
 
 /*
 * GET Dashbaord page
- */
+*/
 
 module.exports.dashboard = function(req, res) {
     if (req.session.user){
@@ -252,14 +251,44 @@ module.exports.data_search = function(req, res)
 
     // if (req.session.user)
     // {
-        res.marko(templates.datasearch);
+    res.marko(templates.datasearch);
     // }
     // else
     // {
-        console.log("Nobody is currently logged in!");
+    console.log("Nobody is currently logged in!");
     //     res.redirect("/login");
     // }
 };
+
+module.exports.get_friends = function(req, res) {
+    let User = mongoose.model('yelp_users');
+    User.find({}, function(err, users) {
+        users = JSON.parse(JSON.stringify(users));
+        users = users.slice(0, 20);
+        temp = [];
+        users.forEach(function(t){
+            let friends = t.friends;
+            let o = {
+                'user_id': t.user_id,
+                'name': t.name,
+                'reviews': t.review_count,
+                'stars': t.average_stars,
+                'friends': friends.length
+            }
+            temp.push(o);
+        })
+        res.marko(templates.friends, {users: temp});
+    });
+};
+
+module.exports.set_friends = function(req, res){
+    let friends = req.body.friends;
+    let User = mongoose.model('app_users');
+
+    // User.findOneAndUpdate({username: currentUser.username}, {
+    //     friends: friends
+    // }
+}
 
 module.exports.get_about = function(req, res) {
     res.marko(templates.about);

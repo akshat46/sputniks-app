@@ -28,7 +28,6 @@ app.use(markoExpress());
 mongoose.model('yelp_users', yelpUser);
 mongoose.model('app_users', appUsers);
 
-
 app.listen(port, () => console.log('app listening on port 3000.'));
 
 app.use('/', routes);

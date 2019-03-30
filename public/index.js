@@ -10,4 +10,4 @@ exports.register = require("./templates/register");
 exports.dashboard = require("./templates/dashboard");
 exports.details = require("./templates/details");
 exports.about = require("./templates/about");
-
+exports.friends = require("./templates/friends");
