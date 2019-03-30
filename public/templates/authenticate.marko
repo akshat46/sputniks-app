@@ -10,6 +10,7 @@
 			<div class="panel">
 				<div class="auth-form on" id="login">
 					<div id="form-title">Sign In</div>
+					<p style="color: red;">${input.message}</p>
 					<form action="/login" method="POST">
 						<input name="username" type="email" id = "SignInUsername" onkeyup = "validateSignIn()" required placeholder="email"/>
 						<input name="password" type="password" minlength="6" id = "SignInPassword" onkeyup = "validateSignIn()" required placeholder="Password"/>

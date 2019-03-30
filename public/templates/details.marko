@@ -6,11 +6,12 @@
 <body>
     <div id="background">
         <div id="panel-box">
-            <form class="form" action="/details" method="POST">
 
+            <form class="form" action="/details" method="POST">
+                <p style="color:blue;font-size: 16px;"> ${input.message}</p>
                 <label class="modal-label" for="firstname">First Name</label>
                 <input class="modal-input" id = "firstname" name="firstname" type="text" required="required" placeholder="First Name" value="${input.user.firstname}"/>
-                <label class="modal-label" for="lastname">First Name</label>
+                <label class="modal-label" for="lastname">Last Name</label>
                 <input class="modal-input" id = "lastname" name="lastname" type="text" required="required" placeholder="Last Name" value="${input.user.lastname}"/>
                 <label class="modal-label" for="city">City</label>
                 <input class="modal-input" id = "city" name="city" type="text" required="required" placeholder="City" value="${input.user.city}"/>
@@ -85,7 +86,9 @@
 
                 <label class="modal-label" >Upload Profile Picture</label>
                 <input type="file" id="avatar" name="avatar" accept="image/*">
-                <button class="button-form" id = "detailSubmit" type="Submit" disabled>Submit Details</button>
+                <button class="button-form" type="button" onclick="window.location.href ='/dashboard'">Go Back</button>
+                <button class="button-form" id = "detailSubmit" type="submit">Save</button>
+                <button class="button-form" type="button" onclick="window.location.href ='/delete-user'">Delete Account</button>
             </form>
             <div class="container">
                 <script src="js/details.js"></script>

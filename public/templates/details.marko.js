@@ -9,6 +9,7 @@ var marko_template = module.exports = require("marko/src/html").t(__filename),
     marko_helpers = require("marko/src/runtime/html/helpers"),
     marko_loadTag = marko_helpers.t,
     component_globals_tag = marko_loadTag(require("marko/src/components/taglib/component-globals-tag")),
+    marko_escapeXml = marko_helpers.x,
     marko_attr = marko_helpers.a,
     init_components_tag = marko_loadTag(require("marko/src/components/taglib/init-components-tag")),
     await_reorderer_tag = marko_loadTag(require("marko/src/taglibs/core/await/reorderer-renderer"));
@@ -20,9 +21,11 @@ function render(input, out, __component, component, state) {
 
   component_globals_tag({}, out);
 
-  out.w("<div id=\"background\"><div id=\"panel-box\"><form class=\"form\" action=\"/details\" method=\"POST\"><label class=\"modal-label\" for=\"firstname\">First Name</label><input class=\"modal-input\" id=\"firstname\" name=\"firstname\" type=\"text\" required=\"required\" placeholder=\"First Name\"" +
+  out.w("<div id=\"background\"><div id=\"panel-box\"><form class=\"form\" action=\"/details\" method=\"POST\"><p style=\"color:blue;font-size: 16px;\"> " +
+    marko_escapeXml(input.message) +
+    "</p><label class=\"modal-label\" for=\"firstname\">First Name</label><input class=\"modal-input\" id=\"firstname\" name=\"firstname\" type=\"text\" required=\"required\" placeholder=\"First Name\"" +
     marko_attr("value", "" + input.user.firstname) +
-    "><label class=\"modal-label\" for=\"lastname\">First Name</label><input class=\"modal-input\" id=\"lastname\" name=\"lastname\" type=\"text\" required=\"required\" placeholder=\"Last Name\"" +
+    "><label class=\"modal-label\" for=\"lastname\">Last Name</label><input class=\"modal-input\" id=\"lastname\" name=\"lastname\" type=\"text\" required=\"required\" placeholder=\"Last Name\"" +
     marko_attr("value", "" + input.user.lastname) +
     "><label class=\"modal-label\" for=\"city\">City</label><input class=\"modal-input\" id=\"city\" name=\"city\" type=\"text\" required=\"required\" placeholder=\"City\"" +
     marko_attr("value", "" + input.user.city) +
@@ -98,11 +101,11 @@ function render(input, out, __component, component, state) {
     out.w("<input type=\"radio\" name=\"notification\" value=\"yes\"> <div class=\"cbox-label\">Yes</div><input type=\"radio\" name=\"notification\" value=\"no\" checked> <div class=\"cbox-label\">No</div>");
   }
 
-  out.w("<label class=\"modal-label\">Upload Profile Picture</label><input type=\"file\" id=\"avatar\" name=\"avatar\" accept=\"image/*\"><button class=\"button-form\" id=\"detailSubmit\" type=\"Submit\" disabled>Submit Details</button></form><div class=\"container\"><script src=\"js/details.js\"></script></div></div></div>");
+  out.w("<label class=\"modal-label\">Upload Profile Picture</label><input type=\"file\" id=\"avatar\" name=\"avatar\" accept=\"image/*\"><button class=\"button-form\" type=\"button\" onclick=\"window.location.href ='/dashboard'\">Go Back</button><button class=\"button-form\" id=\"detailSubmit\" type=\"submit\">Save</button><button class=\"button-form\" type=\"button\" onclick=\"window.location.href ='/delete-user'\">Delete Account</button></form><div class=\"container\"><script src=\"js/details.js\"></script></div></div></div>");
 
   init_components_tag({}, out);
 
-  await_reorderer_tag({}, out, __component, "63");
+  await_reorderer_tag({}, out, __component, "66");
 
   out.w("</body><script src=\"/js/validations.js\"></script></html>");
 }

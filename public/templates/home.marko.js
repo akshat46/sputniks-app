@@ -9,6 +9,7 @@ var marko_template = module.exports = require("marko/src/html").t(__filename),
     marko_helpers = require("marko/src/runtime/html/helpers"),
     marko_loadTag = marko_helpers.t,
     component_globals_tag = marko_loadTag(require("marko/src/components/taglib/component-globals-tag")),
+    marko_escapeXml = marko_helpers.x,
     init_components_tag = marko_loadTag(require("marko/src/components/taglib/init-components-tag")),
     await_reorderer_tag = marko_loadTag(require("marko/src/taglibs/core/await/reorderer-renderer"));
 
@@ -19,19 +20,21 @@ function render(input, out, __component, component, state) {
 
   component_globals_tag({}, out);
 
-  out.w("<ul class=\"navbar\"><div class=\"container\"><li class=\"navitem brand\"><a href=\"/\">Sputniks</a></li>");
+  out.w("<p style=\"color: red;\">" +
+    marko_escapeXml(input.message) +
+    "</p><ul class=\"navbar\"><div class=\"container\"><li class=\"navitem brand\"><a href=\"/\">Sputniks</a></li>");
 
   if (input.logged) {
     out.w("<li class=\"navitem\"><a href=\"/logout\">Log out</a></li><li class=\"navitem\"><a href=\"/dashboard\">Dashboard</a></li>");
   } else {
-    out.w("<li class=\"navitem\"><a href=\"/login\">Login</a></li>");
+    out.w("<li class=\"navitem\"><a href=\"/login\">Login/Register</a></li>");
   }
 
   out.w("<li class=\"navitem\"><a href=\"/about\">About</a></li></div></ul><div><canvas style=\"position:relative\" id=\"header_animation\" width=\"1440px\" height=\"760px\"></canvas></div><script src=\"js/header_animation.js\"></script>");
 
   init_components_tag({}, out);
 
-  await_reorderer_tag({}, out, __component, "21");
+  await_reorderer_tag({}, out, __component, "22");
 
   out.w("</body></html>");
 }
