@@ -26,6 +26,7 @@
     "gulp-marko-compile": "0.0.3",
     "gulp-nodemon": "^2.4.2",
     "gulp-sass": "^4.0.2",
+    "mongoose": "^5.4.20",
     "node-sass": "^4.11.0"
   }
 }
