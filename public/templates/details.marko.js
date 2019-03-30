@@ -25,7 +25,7 @@ function render(input, out, __component, component, state) {
     marko_escapeXml(input.message) +
     "</p><label class=\"modal-label\" for=\"firstname\">First Name</label><input class=\"modal-input\" id=\"firstname\" name=\"firstname\" type=\"text\" required=\"required\" placeholder=\"First Name\"" +
     marko_attr("value", "" + input.user.firstname) +
-    "><label class=\"modal-label\" for=\"lastname\">First Name</label><input class=\"modal-input\" id=\"lastname\" name=\"lastname\" type=\"text\" required=\"required\" placeholder=\"Last Name\"" +
+    "><label class=\"modal-label\" for=\"lastname\">Last Name</label><input class=\"modal-input\" id=\"lastname\" name=\"lastname\" type=\"text\" required=\"required\" placeholder=\"Last Name\"" +
     marko_attr("value", "" + input.user.lastname) +
     "><label class=\"modal-label\" for=\"city\">City</label><input class=\"modal-input\" id=\"city\" name=\"city\" type=\"text\" required=\"required\" placeholder=\"City\"" +
     marko_attr("value", "" + input.user.city) +
