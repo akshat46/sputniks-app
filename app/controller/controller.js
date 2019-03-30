@@ -201,7 +201,7 @@ module.exports.dashboard = function(req, res) {
     if (req.session.user){
         userDetails.push(req.body);
         console.log(userDetails[0].city);
-        res.marko(templates.dashboard, {city:userDetails[0].city});
+        res.marko(templates.dashboard, { city:userDetails[0].city});
     }else{
         res.marko(templates.dashboard);
         console.log("Nobody is currently logged in!");
@@ -209,34 +209,40 @@ module.exports.dashboard = function(req, res) {
     }
 }
 
-module.exports.details = function(req, res) {
-    if (req.session.user) {
-        res.marko(templates.details);
-    }else{
-        res.redirect("/authentication");
-    }
-}
 
-
-module.exports.dataentry = function(req, res) {
-    console.log(req.session);
-    let user = req.body;
-
+module.exports.editUser = function(req, res) {
     let User = mongoose.model('app_users');
+    let currentUser = req.session.user[0];
+    console.log("METHOD TYPE", req.method);
+    if (req.method == 'GET') {
+        User.findOne({username: currentUser.username}, function (err, data) {
+            if (!data) {
+                res.redirect('/');
+            }
+            else {
+                console.log("EDIT DATA",data);
+                res.marko(templates.details, {user: data});
+            }
+        });
+    }
+    else {
 
-    User.findOneAndUpdate( {username: req.session.user[0].username}, {
-        firstname: user.firstname,
-        lastname: user.lastname,
-        city: user.city,
-        state: user.state,
-        zipcode: user.zipcode,
-        food: user.food,
-        notification: user.notification
-    }, function (err, data) {
-        console.log("ERROR", err);
-        console.log("DATA", data);
-        res.redirect('/dashboard');
-    });
+        let user = req.body;
+
+        User.findOneAndUpdate({username: req.session.user[0].username}, {
+            firstname: user.firstname,
+            lastname: user.lastname,
+            city: user.city,
+            state: user.state,
+            zipcode: user.zipcode,
+            food: user.food,
+            notification: user.notification
+        }, function (err, data) {
+            console.log("ERROR", err);
+            console.log("DATA", data);
+            res.redirect('/dashboard');
+        });
+    }
 }
 
 

@@ -6,30 +6,83 @@
 <body>
     <div id="background">
         <div id="panel-box">
-            <form class="form" action="/dashboard" method="POST">
+            <form class="form" action="/details" method="POST">
+
                 <label class="modal-label" for="firstname">First Name</label>
-                <input class="modal-input" id = "firstname" name="firstname" type="text" required="required" placeholder="First Name"/>
+                <input class="modal-input" id = "firstname" name="firstname" type="text" required="required" placeholder="First Name" value="${input.user.firstname}"/>
                 <label class="modal-label" for="lastname">First Name</label>
-                <input class="modal-input" id = "lastname" name="lastname" type="text" required="required" placeholder="Last Name"/>
+                <input class="modal-input" id = "lastname" name="lastname" type="text" required="required" placeholder="Last Name" value="${input.user.lastname}"/>
                 <label class="modal-label" for="city">City</label>
-                <input class="modal-input" id = "city" name="city" type="text" required="required" placeholder="City"/>
+                <input class="modal-input" id = "city" name="city" type="text" required="required" placeholder="City" value="${input.user.city}"/>
                 <label class="modal-label" for="state">State</label>
-                <input class="modal-input" id="state" name="state" type="text" required="required" placeholder="State"/>
+                <input class="modal-input" id="state" name="state" type="text" required="required" placeholder="State" value="${input.user.state}"/>
                 <label class="modal-label" for="zip">ZipCode</label>
-                <input class="modal-input" id="zip" name="zip" type="number" onkeyup = "validateZip()" required="required" placeholder="ZipCode"/>
+                <input class="modal-input" id="zip" name="zipcode" type="number" onkeyup = "validateZip()" required="required" placeholder="ZipCode" value="${input.user.zipcode}"/>
                 <div id = "zipCodeError"></div>
                 <label class="modal-label" >Your food choice?</label>
-                <input class="custom-cbox" onclick = "checkCheckBox()" type="checkbox" name="food" value="Indian"> <div class="cbox-label">Indian</div>
-                <input class="custom-cbox" onclick = "checkCheckBox()" type="checkbox" name="food" value="Mexican">  <div class="cbox-label">Mexican</div>
+
+                <if(input.user.food.split(',').indexOf('Indian') > -1)>
+                    <input class="custom-cbox" onclick = "checkCheckBox()" type="checkbox" name="food" value="Indian" checked> <div class="cbox-label">Indian</div>
+                </if>
+                <if(input.user.food.split(',').indexOf('Indian') < 0)>
+                    <input class="custom-cbox" onclick = "checkCheckBox()" type="checkbox" name="food" value="Indian"> <div class="cbox-label">Indian</div>
+                </if>
+
+                <if(input.user.food.split(',').indexOf('Mexican') > -1)>
+                <input class="custom-cbox" onclick = "checkCheckBox()" type="checkbox" name="food" value="Mexican" checked> <div class="cbox-label">Mexican</div>
+                </if>
+                <if(input.user.food.split(',').indexOf('Mexican') < 0)>
+                <input class="custom-cbox" onclick = "checkCheckBox()" type="checkbox" name="food" value="Mexican"> <div class="cbox-label">Mexican</div>
+                </if>
+
+                <if(input.user.food.split(',').indexOf('Italian') > -1)>
+                <input class="custom-cbox" onclick = "checkCheckBox()" type="checkbox" name="food" value="Italian" checked> <div class="cbox-label">Italian</div>
+                </if>
+                <if(input.user.food.split(',').indexOf('Italian') < 0)>
                 <input class="custom-cbox" onclick = "checkCheckBox()" type="checkbox" name="food" value="Italian"> <div class="cbox-label">Italian</div>
-                <input class="custom-cbox" onclick = "checkCheckBox()" type="checkbox" name="food" value="Thai">  <div class="cbox-label">Thai</div>
+                </if>
+
+                <if(input.user.food.split(',').indexOf('Thai') > -1)>
+                <input class="custom-cbox" onclick = "checkCheckBox()" type="checkbox" name="food" value="Thai" checked> <div class="cbox-label">Thai</div>
+                </if>
+                <if(input.user.food.split(',').indexOf('Thai') < 0)>
+                <input class="custom-cbox" onclick = "checkCheckBox()" type="checkbox" name="food" value="Thai"> <div class="cbox-label">Thai</div>
+                </if>
+
+                <if(input.user.food.split(',').indexOf('German') > -1)>
+                <input class="custom-cbox" onclick = "checkCheckBox()" type="checkbox" name="food" value="German" checked> <div class="cbox-label">German</div>
+                </if>
+                <if(input.user.food.split(',').indexOf('German') < 0)>
                 <input class="custom-cbox" onclick = "checkCheckBox()" type="checkbox" name="food" value="German"> <div class="cbox-label">German</div>
-                <input class="custom-cbox" onclick = "checkCheckBox()" type="checkbox" name="food" value="Canadian">  <div class="cbox-label">Canadian</div>
-                <input class="custom-cbox" onclick = "checkCheckBox()" type="checkbox" name="food" value="Hungarian">  <div class="cbox-label">Hungarian</div>
+                </if>
+
+                <if(input.user.food.split(',').indexOf('Canadian') > -1)>
+                <input class="custom-cbox" onclick = "checkCheckBox()" type="checkbox" name="food" value="Canadian" checked> <div class="cbox-label">Canadian</div>
+                </if>
+                <if(input.user.food.split(',').indexOf('Canadian') < 0)>
+                <input class="custom-cbox" onclick = "checkCheckBox()" type="checkbox" name="food" value="Canadian"> <div class="cbox-label">Canadian</div>
+                </if>
+
+                <if(input.user.food.split(',').indexOf('Hungarian') > -1)>
+                <input class="custom-cbox" onclick = "checkCheckBox()" type="checkbox" name="food" value="Hungarian" checked> <div class="cbox-label">Hungarian</div>
+                </if>
+                <if(input.user.food.split(',').indexOf('Hungarian') < 0)>
+                <input class="custom-cbox" onclick = "checkCheckBox()" type="checkbox" name="food" value="Hungarian"> <div class="cbox-label">Hungarian</div>
+                </if>
+
                 <div id = "checkBoxError"></div>
                 <label class="modal-label">Receive Notification?</label>
-                <input type="radio" name="notification" value="yes" checked="" > <div class="cbox-label">Yes</div>
-                <input type="radio" name="notification" value="no"><div class="cbox-label"> No</div>
+
+                <if(input.user.notification == 'yes')>
+                    <input type="radio" name="notification" value="yes" checked="" > <div class="cbox-label">Yes</div>
+                    <input type="radio" name="notification" value="no"> <div class="cbox-label">No</div>
+                </if>
+
+                <if(input.user.notification != 'yes')>
+                <input type="radio" name="notification" value="yes" > <div class="cbox-label">Yes</div>
+                <input type="radio" name="notification" value="no" checked> <div class="cbox-label">No</div>
+                </if>
+
                 <label class="modal-label" >Upload Profile Picture</label>
                 <input type="file" id="avatar" name="avatar" accept="image/*">
                 <button class="button-form" id = "detailSubmit" type="Submit" disabled>Submit Details</button>
