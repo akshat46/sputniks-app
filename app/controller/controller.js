@@ -216,7 +216,16 @@ module.exports.dashboard = function(req, res) {
     }
 }
 
-
+module.exports.dashboard_main = function(req, res) {
+    if (req.session.user){
+        userDetails.push(req.body);
+        console.log(userDetails[0].city);
+        res.marko(templates.dashboard_main);
+    }else{
+        res.marko(templates.auth);
+        console.log("Nobody is currently logged in!");
+    }
+}
 
 module.exports.delete_user = function(req, res) {
     let currentUser = req.session.user[0];

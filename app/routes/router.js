@@ -34,6 +34,8 @@ router.get('/protected', controller.loggedIn, controller.get_protected);
 
 router.get('/dashboard', controller.dashboard);
 
+router.get('/dashboard_main', controller.dashboard_main);
+
 router.get('/details', controller.editUser);
 
 router.post('/details', controller.editUser);

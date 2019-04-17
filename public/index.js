@@ -8,6 +8,7 @@ exports.login = require("./templates/login");
 exports.protected = require("./templates/protected");
 exports.register = require("./templates/register");
 exports.dashboard = require("./templates/dashboard");
+exports.dashboard_main = require("./templates/dashboard_main");
 exports.details = require("./templates/details");
 exports.about = require("./templates/about");
 exports.friends = require("./templates/friends");
