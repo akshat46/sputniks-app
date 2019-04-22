@@ -90,8 +90,32 @@ $("#cities").on('change', function (event) {
                         }
                 }
            }
-           console.log(result);
            drawWifi(result);
+        }
+    });
+
+
+    $.ajax({
+        type: "POST",
+        data: {city: city},
+        url: "/get_wifi_data",
+        success: function (data) {
+            var result = {city: city,free : 0, no: 0, yes:0, noInfo: 0};
+
+            for (let i = 0; i < data.length; i++) {
+                debugger
+                if (data[i].attributes && "WiFi" in data[i].attributes) {
+                    if(data[i].attributes.WiFi.includes("free"))
+                        result.free = (result.free + 1) || 0;
+                    else if(data[i].attributes.WiFi.includes("no"))
+                        result.no = (result.no + 1) || 0;
+                    else if(data[i].attributes.WiFi.includes("yes"))
+                        result.yes = (result.yes + 1) || 0;
+                    else
+                        result.noInfo = (result.noInfo + 1) || 0;
+                }
+           }
+           drawChart(result);
         }
     });
 

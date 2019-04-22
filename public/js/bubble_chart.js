@@ -10,7 +10,6 @@
 //     };
 const MAX_STRING_LENGTH = 20;
 window.drawBubble = function (dataset) {
-    console.log(dataset);
     $("#chart-bubble").empty();
     let diameter = document.getElementById("chart-bubble").getBoundingClientRect().width;
     let height = document.getElementById("chart-bubble").getBoundingClientRect().height == 0 ? 300 : document.getElementById("chart-bubble").getBoundingClientRect().height;

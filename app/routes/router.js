@@ -52,6 +52,8 @@ router.post('/get_bubble_data', controller.getBubbleData);
 
 router.post('/get_price_data', controller.getPriceData);
 
+router.post('/get_wifi_data', controller.getWifiData);
+
 // router.post('/dataentry', controller.dataentry);
 
 module.exports = router;

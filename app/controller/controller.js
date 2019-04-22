@@ -396,5 +396,20 @@ module.exports.getPriceData = function(req, res){
 
 };
 
+module.exports.getWifiData = function(req, res){
+    if (req.session.user){
+        let restaurants = mongoose.model('restaurants');
+        restaurants.find({"city": req.body.city}, function(err, data) {
+            res.send(data);
+        });
+
+    }
+    else{
+        res.marko(templates.auth);
+        console.log("Nobody is currently logged in!");
+    }
+
+};
+
 
 

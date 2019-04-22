@@ -21,7 +21,6 @@ window.drawWifi = function (data) {
 
     // List of subgroups = header of the csv files = soil condition here
     var subgroups = ['one', 'two','three', 'four'];
-    console.log(subgroups);
 
     // List of groups = species here = value of the first column called group -> I show them on the X axis
     var groups = ['PriceRange']
@@ -43,7 +42,6 @@ window.drawWifi = function (data) {
         .range(['#7B7D7D','#626567','#4D5656', '#424949'])
 
     // Normalize the data -> sum of each group must be 100!
-    console.log(data)
     dataNormalized = []
     data.forEach(function(d){
         // Compute the total
