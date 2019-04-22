@@ -16,6 +16,7 @@ const Schema = mongoose.Schema;
 
 let yelpUser = new Schema({}, {collection: 'yelp_users'});
 let appUsers = new Schema({username:String, password:String, firstname: String, lastname: String, city: String, state: String, zipcode: String, food: String, notification: String});
+let restaurants = new Schema({}, {collection: 'restaurants'});
 
 mongoose.connect('mongodb://admin:cmpe280admin@ds151820.mlab.com:51820/sputniks');
 
@@ -27,6 +28,7 @@ app.use(markoExpress());
 
 mongoose.model('yelp_users', yelpUser);
 mongoose.model('app_users', appUsers);
+mongoose.model('restaurants', restaurants);
 
 app.listen(port, () => console.log('app listening on port 3000.'));
 

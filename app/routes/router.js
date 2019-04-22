@@ -46,6 +46,10 @@ router.get('/delete-user', controller.delete_user);
 
 router.get('/about', controller.get_about);
 
+router.post('/getcity', controller.getCity);
+
+router.post('/get_bubble_data', controller.getBubbleData);
+
 // router.post('/dataentry', controller.dataentry);
 
 module.exports = router;

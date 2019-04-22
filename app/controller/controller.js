@@ -1,5 +1,5 @@
 // Controller file
-var mongoose = require('mongoose');
+let mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const templates = require("../../public");
 const path=require('path');
@@ -56,6 +56,8 @@ module.exports.get_register = function(req, res, next)
 {
     res.marko(templates.auth,{ message: "Please register!" });
 };
+
+
 
 /*
 * POST registration page.
@@ -156,7 +158,7 @@ module.exports.post_login = function(req, res)
             // The user is logged in for this session.
             req.session.user = data;
             console.log(req.session.user.username);
-            res.redirect('/dashboard');
+            res.redirect('/dashboard_main');
         }
     });
 };
@@ -217,15 +219,37 @@ module.exports.dashboard = function(req, res) {
 }
 
 module.exports.dashboard_main = function(req, res) {
+
     if (req.session.user){
-        userDetails.push(req.body);
-        console.log(userDetails[0].city);
-        res.marko(templates.dashboard_main);
+        let restaurants = mongoose.model('restaurants');
+
+        restaurants.find().distinct('state', function(err, s) {
+            userDetails.push(req.body);
+            console.log(userDetails[0].city);
+            res.marko(templates.dashboard_main, {states:s});
+        });
+
     }else{
         res.marko(templates.auth);
         console.log("Nobody is currently logged in!");
     }
 }
+
+
+module.exports.getCity = function(req, res) {
+    if (req.session.user){
+        let restaurants = mongoose.model('restaurants');
+
+        restaurants.find({"state": req.body.state}).distinct('city', function(err, c) {
+            res.send(c);
+        });
+
+    }else{
+        res.marko(templates.auth);
+        console.log("Nobody is currently logged in!");
+    }
+}
+
 
 module.exports.delete_user = function(req, res) {
     let currentUser = req.session.user[0];
@@ -337,3 +361,22 @@ module.exports.set_friends = function(req, res){
 module.exports.get_about = function(req, res) {
     res.marko(templates.about);
 };
+
+
+module.exports.getBubbleData = function(req, res){
+    if (req.session.user){
+        let restaurants = mongoose.model('restaurants');
+        restaurants.find({"city": req.body.city}, function(err, c) {
+            console.log(c);
+            res.send(c);
+        });
+
+    }
+    else{
+        res.marko(templates.auth);
+        console.log("Nobody is currently logged in!");
+    }
+};
+
+
+

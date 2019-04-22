@@ -9,21 +9,38 @@ var marko_template = module.exports = require("marko/src/html").t(__filename),
     marko_helpers = require("marko/src/runtime/html/helpers"),
     marko_loadTag = marko_helpers.t,
     component_globals_tag = marko_loadTag(require("marko/src/components/taglib/component-globals-tag")),
+    marko_forEach = marko_helpers.f,
+    marko_escapeXml = marko_helpers.x,
+    marko_attr = marko_helpers.a,
     init_components_tag = marko_loadTag(require("marko/src/components/taglib/init-components-tag")),
     await_reorderer_tag = marko_loadTag(require("marko/src/taglibs/core/await/reorderer-renderer"));
 
 function render(input, out, __component, component, state) {
   var data = input;
 
-  out.w("<html><head><title>Dashboard</title><link href=\"/css/dashboard.css\" rel=\"stylesheet\" type=\"text/css\"></head><body>");
+  out.w("<html><head><title>Dashboard</title><link href=\"/css/dashboard.css\" rel=\"stylesheet\" type=\"text/css\"><link href=\"/css/index.css\" rel=\"stylesheet\" type=\"text/css\"></head><body>");
 
   component_globals_tag({}, out);
 
-  out.w("<div class=\"dashboard-wrapper\"><div class=\"filters-bar\"><div class=\"title-wrapper\"><i class=\"icon\" data-feather=\"sliders\"></i> Filter Options</div></div><div class=\"flex-container\"><div class=\"flex-item\"><div class=\"card\" id=\"map-card\">Map Card</div></div><div class=\"flex-item\"><div class=\"card\" id=\"chart-med\">Chart 1 Card</div><div class=\"card\" id=\"chart-med\">Chart 2 Card</div></div><div class=\"flex-item\"><div class=\"card\" id=\"chart-med\">Chart 3 Card</div><div class=\"card\" id=\"chart-small\">Chart 4 Card</div></div></div></div><script src=\"https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js\"></script><script src=\"js/dashboard_main.js\"></script>");
+  out.w("<ul class=\"navbar\"><div class=\"container\"><li class=\"navitem brand\"><a href=\"/\">Sputniks</a></li><li><div class=\"dropdown\"><img class=\"dropdown\" src=\"./src/images/img_avatar.png\" alt=\"Avatar\"><div class=\"dropdown-content\"><a href=\"/details\">Edit Details</a><a href=\"/logout\">Sign Out</a></div></div></li><li class=\"navitem\"><a href=\"/about\">About</a></li></div></ul><div class=\"dashboard-wrapper\"><div class=\"filters-bar\"><div class=\"title-wrapper\"><i class=\"icon\" data-feather=\"sliders\"></i> Filter Options</div><div><select id=\"state\"><option value=\"0\">Select State:</option>");
+
+  var for__25 = 0;
+
+  marko_forEach(input.states, function(state) {
+    var keyscope__26 = "[" + ((for__25++) + "]");
+
+    out.w("<option" +
+      marko_attr("value", "" + state) +
+      ">" +
+      marko_escapeXml(state) +
+      "</option>");
+  });
+
+  out.w("</select></div><div><select id=\"cities\"><option value=\"0\">Select City:</option></select></div></div><div class=\"flex-container\"><div class=\"flex-item\"><div class=\"card\" id=\"map-card\">Map Card</div></div><div class=\"flex-item\"><div class=\"card\" id=\"chart-med\"><div class=\"column\"><div class=\"column-content\"></div></div></div><div class=\"card\" id=\"chart-med\">Chart 2 Card</div></div><div class=\"flex-item\"><div class=\"card\" id=\"chart-med\">Chart 3 Card</div><div class=\"card\" id=\"chart-small\">Chart 4 Card</div></div></div></div><script src=\"https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js\"></script><script src=\"https://code.jquery.com/jquery-3.3.1.min.js\"></script><script src=\"https://code.jquery.com/ui/1.12.0/jquery-ui.min.js\"></script><script type=\"text/javascript\" src=\"https://d3js.org/d3.v4.min.js\"></script><script src=\"js/bubble_chart.js\"></script><script src=\"js/dashboard_main.js\"></script>");
 
   init_components_tag({}, out);
 
-  await_reorderer_tag({}, out, __component, "20");
+  await_reorderer_tag({}, out, __component, "48");
 
   out.w("</body></html>");
 }

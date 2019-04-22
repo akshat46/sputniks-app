@@ -1,21 +1,61 @@
 <html>
 <head>
-    <title>Dashboard</title>
-    <link href="/css/dashboard.css" rel="stylesheet" type="text/css" />
+   <title>Dashboard</title>
+   <link href="/css/dashboard.css" rel="stylesheet" type="text/css" />
+   <link href="/css/index.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
+<!-- navigation bar -->
+<ul class="navbar">
+   <div class="container">
+      <li class="navitem brand"><a href="/">Sputniks</a></li>
+      <li>
+         <div class="dropdown"><img class="dropdown" src="./src/images/img_avatar.png" alt="Avatar">
+            <div class="dropdown-content">
+               <a href="/details">Edit Details</a>
+               <a href="/logout">Sign Out</a>
+            </div>
+         </div>
+      </li>
+      <li class="navitem"><a href="/about">About</a></li>
+   </div>
+</ul>
 
+<!-- Dashboard -->
 <div class="dashboard-wrapper">
    <div class="filters-bar">
       <div class="title-wrapper"><i class="icon" data-feather="sliders"></i> Filter Options</div>
+      <!-- City -->
+      <div>
+         <select id="state">
+            <option value="0">Select State:</option>
+            <for|state| of=input.states>
+            <option value="${state}">${state}</option>
+            </for>
+         </select>
+      </div>
+
+      <div>
+         <select id="cities">
+            <option value="0">Select City:</option>
+         </select>
+      </div>
+
    </div>
    <div class="flex-container">
       <div class="flex-item">
          <div class="card" id="map-card">Map Card</div>
       </div>
       <div class="flex-item">
-         <div class="card" id="chart-med">Chart 1 Card</div>
+
+         <div class="card" id="chart-med">
+            <div class="column">
+               <div class="column-content">
+               </div>
+            </div>
+         </div>
+
          <div class="card" id="chart-med">Chart 2 Card</div>
       </div>
       <div class="flex-item">
@@ -26,6 +66,10 @@
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+<script type="text/javascript" src="https://d3js.org/d3.v4.min.js"></script>
+<script src="js/bubble_chart.js"></script>
 <script src="js/dashboard_main.js"></script>
 </body>
 </html>
