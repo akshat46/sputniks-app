@@ -1,0 +1,26 @@
+svg {
+    font: 10px sans-serif;
+    shape-rendering: crispEdges;
+}
+
+.axis path,
+.axis line {
+    fill: none;
+    stroke: #000;
+}
+
+path.domain {
+    stroke: none;
+}
+
+.y .tick line {
+    stroke: #ddd;
+}
+
+.chart-price-container .legend ul { margin: 0; padding: 0; list-style: none}
+.chart-price-container .legend ul li{ position: relative; margin-right: 25px; display: inline-block; }
+.chart-price-container .legend ul li::before{ content: ' '; position: absolute; left: -15px; top: 5px; width: 10px; height: 10px; border-radius: 2px;}
+.chart-price-container .legend ul li:nth-child(1)::before{ background-color: #7B7D7D; }
+.chart-price-container .legend ul li:nth-child(2)::before{ background-color: #626567; }
+.chart-price-container .legend ul li:nth-child(3)::before{ background-color: #4D5656; }
+.chart-price-container .legend ul li:nth-child(4)::before{ background-color: #424949; }

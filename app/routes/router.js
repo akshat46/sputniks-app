@@ -50,6 +50,8 @@ router.post('/getcity', controller.getCity);
 
 router.post('/get_bubble_data', controller.getBubbleData);
 
+router.post('/get_price_data', controller.getPriceData);
+
 // router.post('/dataentry', controller.dataentry);
 
 module.exports = router;

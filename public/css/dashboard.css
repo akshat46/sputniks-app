@@ -80,6 +80,16 @@ body {
   .dashboard-wrapper .flex-container #map-card {
     height: 100%;
     background: #AE94DE; }
+.dashboard-wrapper .flex-container #chart-bubble {
+  margin-top: 1.2vh;
+  margin-bottom: 10px;
+  background: #F8CB98;
+  height: 48%; }
+.dashboard-wrapper .flex-container #chart-price {
+  margin-top: 1.2vh;
+  margin-bottom: 10px;
+  background: #F8CB98;
+  height: 48%; }
   .dashboard-wrapper .flex-container #chart-med {
     margin-top: 1.2vh;
     margin-bottom: 10px;

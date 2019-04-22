@@ -367,7 +367,7 @@ module.exports.getBubbleData = function(req, res){
     if (req.session.user){
         let restaurants = mongoose.model('restaurants');
         restaurants.find({"city": req.body.city}, function(err, c) {
-            console.log(c);
+            // console.log(c);
             res.send(c);
         });
 
@@ -376,6 +376,24 @@ module.exports.getBubbleData = function(req, res){
         res.marko(templates.auth);
         console.log("Nobody is currently logged in!");
     }
+
+};
+
+
+module.exports.getPriceData = function(req, res){
+    if (req.session.user){
+        let restaurants = mongoose.model('restaurants');
+        restaurants.find({"city": req.body.city}, function(err, data) {
+            // console.log(c);
+            res.send(data);
+        });
+
+    }
+    else{
+        res.marko(templates.auth);
+        console.log("Nobody is currently logged in!");
+    }
+
 };
 
 

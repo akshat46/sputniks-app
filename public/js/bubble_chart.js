@@ -11,9 +11,9 @@
 const MAX_STRING_LENGTH = 20;
 window.drawBubble = function (dataset) {
     console.log(dataset);
-    $(".column .column-content").empty();
-    let diameter = document.getElementsByClassName("column")[0].getBoundingClientRect().width;
-    let height = document.getElementById("chart-med").getBoundingClientRect().height;
+    $("#chart-bubble").empty();
+    let diameter = document.getElementById("chart-bubble").getBoundingClientRect().width;
+    let height = document.getElementById("chart-bubble").getBoundingClientRect().height == 0 ? 300 : document.getElementById("chart-bubble").getBoundingClientRect().height;
     let margin = {top: 20, right: 20, bottom: 20, left: 20};
     let color = d3.scaleOrdinal(d3.schemeCategory20);
 
@@ -21,7 +21,7 @@ window.drawBubble = function (dataset) {
         .size([diameter, diameter])
         .padding(1.5);
 
-    let svg = d3.select(".column .column-content")
+    let svg = d3.select("#chart-bubble")
         .append("svg")
         .attr("width", diameter)
         .attr("height", height)
