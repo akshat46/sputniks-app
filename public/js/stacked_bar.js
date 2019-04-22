@@ -94,35 +94,6 @@ window.drawWifi = function (data) {
             tooltip.select("text").text(actualdata[0][currentKey]);
         });;
 
-    // Draw legend
-    var legend = d3.select("#chart-price-body svg")
-        .data(color)
-        .enter().append("g")
-        .attr("class", "legend")
-        .attr("transform", function(d, i) {
-            return "translate(30," + i * 19 + ")";
-        });
-
-    legend.append("rect")
-        .attr("x", width - 18)
-        .attr("width", 18)
-        .attr("height", 18)
-        .style("fill", function(d) { return color(d.key); })
-
-    legend.append("text")
-        .attr("x", width + 5)
-        .attr("y", 9)
-        .attr("dy", ".35em")
-        .style("text-anchor", "start")
-        .text(function(d, i) {
-            switch (i) {
-                case 0: return "$";
-                case 1: return "$$";
-                case 2: return "$$$";
-                case 3: return "$$$$";
-            }
-        });
-
 
     // Prep the tooltip bits, initial display is hidden
     var tooltip = d3.select("#chart-price-body svg").append("g")
