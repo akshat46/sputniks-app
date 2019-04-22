@@ -1,5 +1,5 @@
 google.charts.load('current', {'packages':['bar']});
-google.charts.setOnLoadCallback(drawChart);
+// google.charts.setOnLoadCallback(drawChart);
 
 function drawChart(data) {
     console.log("Data:", data);
