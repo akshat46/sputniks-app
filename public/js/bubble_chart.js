@@ -9,10 +9,11 @@
 //             {"Name":"Hungarian","Count":28}]
 //     };
 const MAX_STRING_LENGTH = 20;
-window.drawBubble = function (dataset) {
+function drawBubble(dataset) {
     $("#chart-bubble").empty();
-    let diameter = document.getElementById("chart-bubble").getBoundingClientRect().width;
-    let height = document.getElementById("chart-bubble").getBoundingClientRect().height == 0 ? 300 : document.getElementById("chart-bubble").getBoundingClientRect().height;
+    //let diameter = document.getElementById("chart-bubble").getBoundingClientRect().width;
+    let diameter = $("#chart-bubble").width();
+    let height = document.getElementById("chart-bubble").getBoundingClientRect().height == 0 ? 300 : $("#chart-bubble").width();
     console.log("diameter: " + diameter);
     console.log("height: " + height);
     let margin = {top: 20, right: 20, bottom: 20, left: 20};
@@ -25,9 +26,9 @@ window.drawBubble = function (dataset) {
     let svg = d3.select("#chart-bubble")
         .append("svg")
         .attr("width", diameter)
-        .attr("height", height)
-        .attr("margin", margin)
-        .attr("class", "bubble");
+        .attr("height", height);
+        //.attr("margin", margin)
+        //.attr("class", "bubble");
 
     let nodes = d3.hierarchy(dataset)
         .sum(function(d) { return d.Count; });

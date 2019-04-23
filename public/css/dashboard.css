@@ -21,9 +21,6 @@ body {
   position: relative;
   top: 5px; }
 
-#chart-bubble {
-  height: 100% !important; }
-
 .dashboard-wrapper {
   display: flex; }
   .dashboard-wrapper .title-wrapper {
@@ -73,12 +70,13 @@ body {
   -ms-flex-align: start;
   align-items: flex-start; }
   .dashboard-wrapper .flex-container .card {
-    display: inline-block;
+    display: block;
     width: 100%;
     background: #F7F7F7;
     border-radius: 5px;
     border: solid 1px #c8c8c8;
     box-sizing: border-box;
+    padding: 0 !important;
     -webkit-box-shadow: 0vw 1vh 3vh -1vh rgba(0, 0, 0, 0.3);
     -moz-box-shadow: 0vw 1vh 3vh -1vh rgba(0, 0, 0, 0.3);
     box-shadow: 0vw 1vh 3vh -1vh rgba(0, 0, 0, 0.3); }
@@ -98,41 +96,29 @@ body {
     margin-bottom: 10px;
     background: white;
     height: 28%; }
+  .dashboard-wrapper .flex-container #chart-bubble {
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    margin: 0 !important;
+    box-sizing: border-box; }
+  .dashboard-wrapper .flex-container #bar_chart {
+    display: inline-block;
+    height: 100%;
+    width: 100%; }
 
 .dashboard-wrapper .flex-item {
-  box-sizing: border-box;
+  position: relative;
   padding: 10px;
   height: 98%; }
 
-.dashboard-wrapper .flex-item:nth-child(1) {
+.dashboard-wrapper .flex-item {
   -webkit-order: 0;
   -ms-flex-order: 0;
   order: 0;
-  -webkit-flex: .5 .5 auto;
-  -ms-flex: .5 .5 auto;
-  flex: .5 .5 auto;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
   -webkit-align-self: center;
   -ms-flex-item-align: center;
-  align-self: center; }
-
-.dashboard-wrapper .flex-item:nth-child(2) {
-  -webkit-order: 0;
-  -ms-flex-order: 0;
-  order: 0;
-  -webkit-flex: .25 1 auto;
-  -ms-flex: .25 1 auto;
-  flex: .25 1 auto !important;
-  -webkit-align-self: auto;
-  -ms-flex-item-align: auto;
-  align-self: auto; }
-
-.dashboard-wrapper .flex-item:nth-child(3) {
-  -webkit-order: 0;
-  -ms-flex-order: 0;
-  order: 0;
-  -webkit-flex: .25 1 auto;
-  -ms-flex: .25 1 auto;
-  flex: .25 1 auto;
-  -webkit-align-self: auto;
-  -ms-flex-item-align: auto;
-  align-self: auto; }
+  align-self: flex-start; }
