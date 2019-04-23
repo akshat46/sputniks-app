@@ -7,32 +7,32 @@
 </head>
 
 <body>
-<!-- navigation bar -->
-<ul class="navbar">
-   <div class="container">
-      <li class="navitem brand"><a href="/">Sputniks</a></li>
-      <li>
-         <div class="dropdown"><img class="dropdown" src="./src/images/img_avatar.png" alt="Avatar">
-            <div class="dropdown-content">
-               <a href="/details">Edit Details</a>
-               <a href="/logout">Sign Out</a>
+   <!-- navigation bar -->
+   <ul class="navbar">
+      <div class="container">
+         <li class="navitem brand"><a href="/">Sputniks</a></li>
+         <li>
+            <div class="dropdown"><img class="dropdown" src="./src/images/img_avatar.png" alt="Avatar">
+               <div class="dropdown-content">
+                  <a href="/details">Edit Details</a>
+                  <a href="/logout">Sign Out</a>
+               </div>
             </div>
-         </div>
-      </li>
-      <li class="navitem"><a href="/about">About</a></li>
-   </div>
-</ul>
+         </li>
+         <li class="navitem"><a href="/about">About</a></li>
+      </div>
+   </ul>
 
-<!-- Dashboard -->
-<div class="dashboard-wrapper">
-   <div class="filters-bar">
-      <div class="title-wrapper"><i class="icon" data-feather="sliders"></i> Filter Options</div>
-      <!-- City -->
-      <div>
-         <select id="state">
-            <option value="0">Select State:</option>
-            <for|state| of=input.states>
-            <option value="${state}">${state}</option>
+   <!-- Dashboard -->
+   <div class="dashboard-wrapper">
+      <div class="filters-bar">
+         <div class="title-wrapper"><i class="icon" data-feather="sliders"></i> Filter Options</div>
+         <!-- City -->
+         <div>
+            <select id="state">
+               <option value="0">Select State:</option>
+               <for|state| of=input.states>
+               <option value="${state}">${state}</option>
             </for>
          </select>
       </div>
@@ -46,14 +46,17 @@
    </div>
    <div class="flex-container">
       <div class="flex-item">
-         <div class="card" id="map-card">Map Card</div>
+         <div class="card" id="map-card">
+            <div id="map"></div>
+         </div>
       </div>
       <div class="flex-item">
-         <div class="card" id="chart-bubble">
+         <div class="card chart-med">
+            <div id="chart-bubble"></div>
          </div>
 
-         <div class="chart-price-container">
-            <div class="card" id="chart-price">
+         <div class="card chart-med">
+            <div class="chart-price-container" id="chart-price">
                <div id="chart-price-body"></div>
                <div class="legend">
                   <ul>
@@ -64,12 +67,11 @@
                   </ul>
                </div>
             </div>
-
          </div>
       </div>
       <div class="flex-item">
-         <div class="card" id="chart-med">Chart 3 Card</div>
-         <div class="card" id="chart-small">Chart 4 Card</div>
+         <div class="card chart-med">Chart 3 Card</div>
+         <div class="card chart-small"><div  id="chart-wifi"></div></div>
       </div>
    </div>
 </div>
@@ -77,6 +79,8 @@
 <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+<script src="/js/map.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCzGa6kea5GkeVEBjPTEUMq2bwz_X0MoNA&callback=initMap" async defer></script>
 <script type="text/javascript" src="https://d3js.org/d3.v4.min.js"></script>
 <script src="js/bubble_chart.js"></script>
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>

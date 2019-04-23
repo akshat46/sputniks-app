@@ -36,7 +36,7 @@ function drawWifiChart(data) {
     title: 'WiFi options in '+ data.city,
   };
 
-  var chart = new google.visualization.PieChart(document.getElementById('chart-small'));
+  var chart = new google.visualization.PieChart(document.getElementById('chart-wifi'));
 
   chart.draw(displayData, options);
 }

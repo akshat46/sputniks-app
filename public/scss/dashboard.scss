@@ -23,13 +23,17 @@ body{
 	top: 5px;
 }
 
+#chart-bubble{
+   height: 100% !important;
+}
+
 .dashboard-wrapper{
    display: flex;
    .title-wrapper{
       @include title();
       @include noselect();
       font-size: 1.5em;
-      color: white;
+      color: rgb(212, 212, 212);
       height: 50px;
       top: 0;
       text-align: center;
@@ -72,22 +76,28 @@ body{
       width: 100%;
       background: $white2;
       border-radius: 5px;
-      @include shadow(#000, 0.5);
+      border: solid 1px rgb(200, 200, 200);
+      box-sizing: border-box;
+      @include shadow(#000, 0.3);
    }
    #map-card{
       height: 100%;
-      background: $duo-2;
+      background: $white;
+      #map{
+         height: 100%;
+         width: 100%;
+      }
    }
-   #chart-med{
+   .chart-med{
       margin-top: 1.2vh;
       margin-bottom: 10px;
-      background: $duo-1;
+      background: $white;
       height: 48%;
    }
-   #chart-small{
+   .chart-small{
       margin-top: 1.2vh;
       margin-bottom: 10px;
-      background: $dark-1;
+      background: $white;
       height: 28%;
    }
 }
@@ -116,7 +126,7 @@ body{
    order: 0;
    -webkit-flex: .25 1 auto;
    -ms-flex: .25 1 auto;
-   flex: .25 1 auto;
+   flex: .25 1 auto !important;
    -webkit-align-self: auto;
    -ms-flex-item-align: auto;
    align-self: auto;

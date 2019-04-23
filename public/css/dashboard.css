@@ -21,6 +21,9 @@ body {
   position: relative;
   top: 5px; }
 
+#chart-bubble {
+  height: 100% !important; }
+
 .dashboard-wrapper {
   display: flex; }
   .dashboard-wrapper .title-wrapper {
@@ -34,7 +37,7 @@ body {
     -ms-user-select: none;
     user-select: none;
     font-size: 1.5em;
-    color: white;
+    color: #d4d4d4;
     height: 50px;
     top: 0;
     text-align: center; }
@@ -74,31 +77,26 @@ body {
     width: 100%;
     background: #F7F7F7;
     border-radius: 5px;
-    -webkit-box-shadow: 0vw 1vh 3vh -1vh rgba(0, 0, 0, 1.5);
-    -moz-box-shadow: 0vw 1vh 3vh -1vh rgba(0, 0, 0, 1.5);
-    box-shadow: 0vw 1vh 3vh -1vh rgba(0, 0, 0, 1.5); }
+    border: solid 1px #c8c8c8;
+    box-sizing: border-box;
+    -webkit-box-shadow: 0vw 1vh 3vh -1vh rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0vw 1vh 3vh -1vh rgba(0, 0, 0, 0.3);
+    box-shadow: 0vw 1vh 3vh -1vh rgba(0, 0, 0, 0.3); }
   .dashboard-wrapper .flex-container #map-card {
     height: 100%;
-    background: rgb(255, 255, 255); }
-.dashboard-wrapper .flex-container #chart-bubble {
-  margin-top: 1.2vh;
-  margin-bottom: 10px;
-  background: rgb(255, 255, 255);
-  height: 48%; }
-.dashboard-wrapper .flex-container #chart-price {
-  margin-top: 1.2vh;
-  margin-bottom: 10px;
-  background: rgb(255, 255, 255);
-  height: 48%; }
-  .dashboard-wrapper .flex-container #chart-med {
+    background: white; }
+    .dashboard-wrapper .flex-container #map-card #map {
+      height: 100%;
+      width: 100%; }
+  .dashboard-wrapper .flex-container .chart-med {
     margin-top: 1.2vh;
     margin-bottom: 10px;
-    background: rgb(255, 255, 255);
+    background: white;
     height: 48%; }
-  .dashboard-wrapper .flex-container #chart-small {
+  .dashboard-wrapper .flex-container .chart-small {
     margin-top: 1.2vh;
     margin-bottom: 10px;
-    background: rgb(255, 255, 255);
+    background: white;
     height: 28%; }
 
 .dashboard-wrapper .flex-item {
@@ -123,7 +121,7 @@ body {
   order: 0;
   -webkit-flex: .25 1 auto;
   -ms-flex: .25 1 auto;
-  flex: .25 1 auto;
+  flex: .25 1 auto !important;
   -webkit-align-self: auto;
   -ms-flex-item-align: auto;
   align-self: auto; }
