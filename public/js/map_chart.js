@@ -1,14 +1,17 @@
-google.charts.load('current', { 'packages': ['map'], 'mapsApiKey': 'AIzaSyCwZId38T-ogdP11BteYHX54DKrwq9KOGs' });
+google.charts.load('current', { 'packages': ['map'] });
     google.charts.setOnLoadCallback(drawMap);
 
-    function drawMap() {
-        var data = google.visualization.arrayToDataTable([
-            ['Lat', 'Long', 'Name'],
-            [37.4232, -122.0853, 'Work'],
-            [37.4289, -122.1697, 'University'],
-            [37.6153, -122.3900, 'Airport'],
-            [37.4422, -122.1731, 'Shopping']
-          ]);
+    function drawMap(response) {
+        var markerData = [];
+        markerData.push(['Lat', 'Long', 'Name']);
+        response.result.forEach(element => {
+            var marker = [];
+            marker.push(element.lat);
+            marker.push(element.long);
+            marker.push(element.name);
+            markerData.push(marker);
+        });
+        var data = google.visualization.arrayToDataTable(markerData);
   
       var options = {
         showTooltip: true,
@@ -16,10 +19,10 @@ google.charts.load('current', { 'packages': ['map'], 'mapsApiKey': 'AIzaSyCwZId3
         showInfoWindow: true,
         icons: {
             default: {
-              normal: 'src/images/marker1.png',
               selected: 'src/images/marker2.png'
             },
-          }
+          },
+          zoomLevel : 10
       };
   
       var map = new google.visualization.Map(document.getElementById('map-card'));

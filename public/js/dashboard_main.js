@@ -124,9 +124,6 @@ $("#state").on('change', function (event) {
             data: {city: city},
             url: "/get_cuisine_data",
             success: function (data) {
-                debugger
-
-                var myMap = new Map();
                 // setting the values
 
                 var result = [];
