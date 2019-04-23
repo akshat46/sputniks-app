@@ -411,5 +411,21 @@ module.exports.getWifiData = function(req, res){
 
 };
 
+module.exports.getCuisineData = function(req, res){
+    if (req.session.user){
+        let restaurants = mongoose.model('restaurants');
+        restaurants.find({"city": req.body.city}, function(err, data) {
+            console.log(data);
+            res.send(data);
+        });
+
+    }
+    else{
+        res.marko(templates.auth);
+        console.log("Nobody is currently logged in!");
+    }
+
+};
+
 
 

@@ -101,7 +101,7 @@ $("#cities").on('change', function (event) {
             data: {city: city},
             url: "/get_wifi_data",
             success: function (data) {
-                var result = {city: city,free : 0, no: 0, yes:0, noInfo: 0};
+                var result = {city: city, free : 0, no: 0, yes:0, noInfo: 0};
 
                 for (let i = 0; i < data.length; i++) {
                     if (data[i].attributes && "WiFi" in data[i].attributes) {
@@ -115,10 +115,37 @@ $("#cities").on('change', function (event) {
                             result.noInfo = (result.noInfo + 1) || 0;
                     }
                 }
-                console.log(result);
-                drawChart(result);
+                drawWifiChart(result);
             }
         });
+
+        $.ajax({
+            type: "POST",
+            data: {city: city},
+            url: "/get_cuisine_data",
+            success: function (data) {
+                debugger
+
+                var myMap = new Map();
+                // setting the values
+                
+                var result = [];
+                for (let i = 0; i < data.length; i++) {
+                    var restaurantDetails = {name: name, rating : 0, totalReviews: 0, categories: "", lat: Number, long: Number };
+                    restaurantDetails.name = data[i].name;
+                    restaurantDetails.rating = data[i].stars;
+                    restaurantDetails.totalReviews = data[i].review_count;
+                    restaurantDetails.categories = data[i].categories;
+                    restaurantDetails.lat = data[i].latitude;
+                    restaurantDetails.long = data[i].longitude;
+                    result.push(restaurantDetails);
+                }
+                var response = {city: city, result : result};
+                drawMap(response);
+            }
+        });
+
+
     }
 
 });

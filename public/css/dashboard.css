@@ -74,31 +74,31 @@ body {
     width: 100%;
     background: #F7F7F7;
     border-radius: 5px;
-    -webkit-box-shadow: 0vw 1vh 3vh -1vh rgba(0, 0, 0, 0.5);
-    -moz-box-shadow: 0vw 1vh 3vh -1vh rgba(0, 0, 0, 0.5);
-    box-shadow: 0vw 1vh 3vh -1vh rgba(0, 0, 0, 0.5); }
+    -webkit-box-shadow: 0vw 1vh 3vh -1vh rgba(0, 0, 0, 1.5);
+    -moz-box-shadow: 0vw 1vh 3vh -1vh rgba(0, 0, 0, 1.5);
+    box-shadow: 0vw 1vh 3vh -1vh rgba(0, 0, 0, 1.5); }
   .dashboard-wrapper .flex-container #map-card {
     height: 100%;
-    background: #AE94DE; }
+    background: rgb(255, 255, 255); }
 .dashboard-wrapper .flex-container #chart-bubble {
   margin-top: 1.2vh;
   margin-bottom: 10px;
-  background: #F8CB98;
+  background: rgb(255, 255, 255);
   height: 48%; }
 .dashboard-wrapper .flex-container #chart-price {
   margin-top: 1.2vh;
   margin-bottom: 10px;
-  background: #F8CB98;
+  background: rgb(255, 255, 255);
   height: 48%; }
   .dashboard-wrapper .flex-container #chart-med {
     margin-top: 1.2vh;
     margin-bottom: 10px;
-    background: #F8CB98;
+    background: rgb(255, 255, 255);
     height: 48%; }
   .dashboard-wrapper .flex-container #chart-small {
     margin-top: 1.2vh;
     margin-bottom: 10px;
-    background: #997D5E;
+    background: rgb(255, 255, 255);
     height: 28%; }
 
 .dashboard-wrapper .flex-item {

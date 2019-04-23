@@ -39,7 +39,7 @@ window.drawWifi = function (data) {
     // color palette = one color per subgroup
     var color = d3.scaleOrdinal()
         .domain(subgroups)
-        .range(['#7B7D7D','#626567','#4D5656', '#424949'])
+        .range(['#ffcc80','#ffa726','#fb8c00', '#ef6c00'])
 
     // Normalize the data -> sum of each group must be 100!
     dataNormalized = []

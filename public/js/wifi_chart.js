@@ -20,9 +20,9 @@
 // }
 
 google.charts.load('current', {'packages':['corechart']});
-google.charts.setOnLoadCallback(drawChart);
+google.charts.setOnLoadCallback(drawWifiChart);
 
-function drawChart(data) {
+function drawWifiChart(data) {
 
   var displayData = google.visualization.arrayToDataTable([
     ['WiFi Group', 'Number of Restaurants'],
