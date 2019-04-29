@@ -24,19 +24,23 @@ google.charts.setOnLoadCallback(drawWifiChart);
 
 function drawWifiChart(data) {
 
-  var displayData = google.visualization.arrayToDataTable([
-    ['WiFi Group', 'Number of Restaurants'],
-    ['Free Wifi', data.free],
-    ['Paid Wifi', data.yes],
-    ['No wifi', data.no],
-    ['No Info', data.noInfo]
-  ]);
+    if(data != undefined) {
+        $("#chart-wifi").empty();
+        var displayData = google.visualization.arrayToDataTable([
+            ['WiFi Group', 'Number of Restaurants'],
+            ['Free Wifi', data.free],
+            ['Paid Wifi', data.yes],
+            ['No wifi', data.no],
+            ['No Info', data.noInfo]
+        ]);
 
-  var options = {
-    title: 'WiFi options in '+ data.city,
-  };
+        var options = {
+            title: 'WiFi options in '+ data.city,
+        };
 
-  var chart = new google.visualization.PieChart(document.getElementById('chart-wifi'));
+        var chart = new google.visualization.PieChart(document.getElementById('chart-wifi'));
 
-  chart.draw(displayData, options);
+        chart.draw(displayData, options);
+    }
+
 }

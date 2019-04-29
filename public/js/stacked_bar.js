@@ -1,5 +1,5 @@
-window.drawWifi = function (data) {
-    var actualdata = $.extend(true,{},data);;
+window.drawPriceStacked = function (data) {
+    var actualdata = $.extend(true,{},data);
 
     $("#chart-price-body").empty();
 

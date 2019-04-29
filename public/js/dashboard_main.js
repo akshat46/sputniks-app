@@ -32,6 +32,7 @@ $("#state").on('change', function (event) {
                 var temp_categories = [];
                 var categories;
 
+                // Function to get only valid categories and discard the remaining like Restaurants, Food
                 let getFormattedData = function (data) {
                     let result = {
                         children: []
@@ -52,6 +53,7 @@ $("#state").on('change', function (event) {
                     return result;
                 }
 
+                // Gt Bubble Chart Data
                 $.ajax({
                     type: "POST",
                     data: {city: city},
@@ -68,65 +70,69 @@ $("#state").on('change', function (event) {
 
                         drawBubble(getFormattedData(categoryMap));
                         categories = getFormattedData(categoryMap).children;
-                    }
-                });
 
-                $.ajax({
-                    type: "POST",
-                    data: {city: city},
-                    url: "/get_price_data",
-                    success: function (data) {
-                        var result = [{group: "PriceRange", one : 0, two: 0, three:0, four: 0}];
-                        console.log(data[1]);
+                        //Get Price Data
+                        $.ajax({
+                            type: "POST",
+                            data: {city: city},
+                            url: "/get_price_data",
+                            success: function (data) {
+                                var result = [{group: "PriceRange", one : 0, two: 0, three:0, four: 0}];
 
-                        categories = categories.sort(function (a, b) {
-                            return b.Count - a.Count;
-                        });
-                        let length = categories.length >= 4 ? 4 : categories.length;
-                        for(let i = 0; i < length; i++){
-                            bar_chart_data[categories[i].Name] = {name: categories[i].Name, one: 0, two: 0, three: 0, four:0};
-                            temp_categories.push(categories[i].Name);
-                        }
-                        //let temp = {"Name": category, "Count": data[category]};
-                        for (let i = 0; i < data.length; i++) {
-                            if (data[i].attributes && "RestaurantsPriceRange2" in data[i].attributes && data[i].attributes.RestaurantsPriceRange2 != null) {
-                                switch(data[i].attributes.RestaurantsPriceRange2) {
-                                    case '1':
-                                    result[0].one = (result[0].one + 1) || 0;
-                                    break;
-                                    case '2':
-                                    result[0].two = (result[0].two + 1) || 0;
-                                    break;
-                                    case '3':
-                                    result[0].three = (result[0].three  + 1) || 0;
-                                    break;
-                                    case '4':
-                                    result[0].four = (result[0].four  + 1) || 0;
-                                    break;
-                                }
-                                let categories = data[i].categories.split(',');
-                                let intersection = temp_categories.filter(value => categories.includes(value));
-                                intersection.forEach(function(e){
-                                    switch(data[i].attributes.RestaurantsPriceRange2) {
-                                        case '1':
-                                        bar_chart_data[e].one = (bar_chart_data[e].one + 1) || 0;
-                                        break;
-                                        case '2':
-                                        bar_chart_data[e].two = (bar_chart_data[e].two + 1) || 0;
-                                        break;
-                                        case '3':
-                                        bar_chart_data[e].three = (bar_chart_data[e].three  + 1) || 0;
-                                        break;
-                                        case '4':
-                                        bar_chart_data[e].four = (bar_chart_data[e].four  + 1) || 0;
-                                        break;
-                                    }
+                                categories = categories.sort(function (a, b) {
+                                    return b.Count - a.Count;
                                 });
+
+                                let length = categories.length >= 4 ? 4 : categories.length;
+                                for(let i = 0; i < length; i++){
+                                    bar_chart_data[categories[i].Name] = {name: categories[i].Name, one: 0, two: 0, three: 0, four:0};
+                                    temp_categories.push(categories[i].Name);
+                                }
+                                //let temp = {"Name": category, "Count": data[category]};
+                                for (let i = 0; i < data.length; i++) {
+                                    if (data[i].attributes && "RestaurantsPriceRange2" in data[i].attributes && data[i].attributes.RestaurantsPriceRange2 != null) {
+                                        switch(data[i].attributes.RestaurantsPriceRange2) {
+                                            case '1':
+                                                result[0].one = (result[0].one + 1) || 0;
+                                                break;
+                                            case '2':
+                                                result[0].two = (result[0].two + 1) || 0;
+                                                break;
+                                            case '3':
+                                                result[0].three = (result[0].three  + 1) || 0;
+                                                break;
+                                            case '4':
+                                                result[0].four = (result[0].four  + 1) || 0;
+                                                break;
+                                        }
+                                        let categories = data[i].categories.split(',');
+                                        let intersection = temp_categories.filter(value => categories.includes(value));
+                                        intersection.forEach(function(e){
+                                            switch(data[i].attributes.RestaurantsPriceRange2) {
+                                                case '1':
+                                                    bar_chart_data[e].one = (bar_chart_data[e].one + 1) || 0;
+                                                    break;
+                                                case '2':
+                                                    bar_chart_data[e].two = (bar_chart_data[e].two + 1) || 0;
+                                                    break;
+                                                case '3':
+                                                    bar_chart_data[e].three = (bar_chart_data[e].three  + 1) || 0;
+                                                    break;
+                                                case '4':
+                                                    bar_chart_data[e].four = (bar_chart_data[e].four  + 1) || 0;
+                                                    break;
+                                            }
+                                        });
+                                    }
+                                }
+                                console.log('result', result);
+                                if(!(result.length === 1 && result[0].one === 0 && result[0].two === 0, result[0].three === 0, result[0].four === 0)) {
+                                    drawPriceStacked(result);
+                                }
+
+                                drawBarChart(bar_chart_data);
                             }
-                        }
-                        console.log(bar_chart_data);
-                        drawWifi(result);
-                        drawBarChart(bar_chart_data);
+                        });
                     }
                 });
 
@@ -159,7 +165,6 @@ $("#state").on('change', function (event) {
                     data: {city: city},
                     url: "/get_cuisine_data",
                     success: function (data) {
-                        debugger
 
                         var myMap = new Map();
                         // setting the values
