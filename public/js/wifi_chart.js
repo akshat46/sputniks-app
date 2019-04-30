@@ -36,6 +36,8 @@ function drawWifiChart(data) {
 
         var options = {
             title: 'WiFi options in '+ data.city,
+            'width':500,
+            'height':380
         };
 
         var chart = new google.visualization.PieChart(document.getElementById('chart-wifi'));

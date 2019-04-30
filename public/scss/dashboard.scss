@@ -16,6 +16,7 @@ body{
    font-size: 16px;
    font-family: 'Karla', sans-serif !important;
    overflow-x: hidden !important;
+   background-color: $white;
 }
 
 .icon{
@@ -33,7 +34,7 @@ body{
       @include title();
       @include noselect();
       font-size: 1.5em;
-      color: rgb(212, 212, 212);
+      color: $duo-1;
       height: 50px;
       top: 0;
       text-align: center;
@@ -58,6 +59,19 @@ body{
    height: 100vh;
    min-width: 300px;
    background: $dark-2;
+   .cuisine-container{
+      position: relative;
+      margin: 0 auto;
+      width: 200px;
+      label{
+         display: block;
+         color: white;
+         //position: relative;
+      }
+      button{
+         background-color: $duo-1 !important;
+      }
+   }
 }
 
 .dashboard-wrapper .flex-container {
@@ -84,11 +98,11 @@ body{
    .card{
       display: block;
       width: 100%;
-      background: $white2;
+      background: $white;
       border-radius: 5px;
       border: solid 1px rgb(200, 200, 200);
       box-sizing: border-box;
-      padding: 0 !important;
+      padding: 20px !important;
       @include shadow(#000, 0.3);
    }
    #map-card{
@@ -105,11 +119,17 @@ body{
       background: $white;
       height: 48%;
    }
+   .chart-med2{
+      margin-top: 1.2vh;
+      margin-bottom: 10px;
+      background: $white;
+      height: 34%;
+   }
    .chart-small{
       margin-top: 1.2vh;
       margin-bottom: 10px;
       background: $white;
-      height: 28%;
+      height: 26%;
    }
    #chart-bubble{
       display: inline-block;

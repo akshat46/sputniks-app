@@ -24,8 +24,8 @@ function drawBarChart(values) {
             var chart = new google.charts.Bar(document.getElementById('bar_chart'));
             var options = {
                 chart: {
-                    title: 'Company Performance',
-                    subtitle: 'Sales, Expenses, and Profit: 2014-2017',
+                    title: 'Top 4 Cuisines',
+                    subtitle: 'Price ranges',
                 }
             };
             chart.draw(data, google.charts.Bar.convertOptions(options));

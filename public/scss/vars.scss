@@ -3,7 +3,7 @@ $dark-1: #997D5E;
 $duo-2: #AE94DE;
 $dark-2: #6E5E8C;
 $white: white;
-$white2: #F7F7F7;
+$white2: #f5f5f5;
 
 $image: url('https://i.imgur.com/vDhRJV5.jpg');
 
@@ -35,6 +35,12 @@ $image: url('https://i.imgur.com/vDhRJV5.jpg');
 	-webkit-box-shadow: 0vw 3vh 6vh -2vh rgba($color,$op);
 	-moz-box-shadow: 0vw 3vh 6vh -2vh rgba($color,$op);
 	box-shadow: 0vw 3vh 6vh -2vh rgba($color,$op);
+}
+
+@mixin shadow-s($color, $op){
+	-webkit-box-shadow: 0vw 1vh 2vh 0vh rgba($color,$op);
+	-moz-box-shadow: 0vw 1vh 2vh 0vh rgba($color,$op);
+	box-shadow: 0vw 5px 10px -5px rgba($color,$op);
 }
 
 @mixin shadow($color, $op){
