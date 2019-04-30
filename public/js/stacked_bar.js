@@ -12,7 +12,7 @@ window.drawPriceStacked = function (data) {
 // set the dimensions and margins of the graph
     var margin = {top: 0, right: 0, bottom: 0, left: 100},
         width = $("#chart-price-body").width() - 280,
-        height = $(".chart-small")[0].getBoundingClientRect().height - 70;
+        height = $(".chart-med")[0].getBoundingClientRect().height - 70;
     console.log(width, height);
         // width = 150,
         // height = 200 - margin.top - margin.bottom;
