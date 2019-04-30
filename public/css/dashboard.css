@@ -162,3 +162,49 @@ body {
     -ms-flex-item-align: center;
     align-self: flex-start;
 }
+
+.welcome-text {
+    text-align: center;
+    font-size: 75px;
+    margin-left: 59px;
+    color: #f1f1f1;
+    text-shadow: 2px 4px #313131;
+}
+
+.location-text {
+    text-align: center;
+    font-size: 36px;
+    margin-left: 59px;
+    margin-top: 15px;
+    color: #f1f1f1;
+    margin-bottom: 20px;
+}
+
+.title-wrapper {
+    color: #f1f1f1;
+}
+
+.no-data-dashbaord .no-data-filter{
+    position: absolute;
+    height: 100vh;
+    width: 100%;
+    z-index: 10;
+}
+.no-data-dashbaord .welcome-wrapper {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    text-align: center;
+    width: 70%;
+}
+
+select {
+    margin-top: 20px;
+    width: 200px;
+    height: 30px;
+    font-size: 14px;
+}
+
+.dashboard-wrapper .welcome-text, .dashboard-wrapper .location-text {
+    display: none;
+}

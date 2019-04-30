@@ -23,6 +23,10 @@ body{
 	top: 5px;
 }
 
+.no-data-dashbaord{
+   display: block;
+}
+
 .dashboard-wrapper{
    display: flex;
    .title-wrapper{
@@ -34,6 +38,16 @@ body{
       top: 0;
       text-align: center;
    }
+}
+
+.no-data-filter {
+   display: inline-block;
+   position: relative;
+   left: 0;
+   top: 0;
+   height: 100vh;
+   width: 100%;
+   background: #6E5E8C;
 }
 
 .filters-bar{
@@ -127,4 +141,18 @@ body{
       -webkit-align-self: center;
       -ms-flex-item-align: center;
       align-self: flex-start;
+}
+
+.welcome-text {
+   text-align: center;
+   font-size: 500px;
+   margin-left: 59px;
+   margin-top: 30px;
+}
+
+.location-text {
+   text-align: center;
+   font-size: 200px;
+   margin-left: 59px;
+   margin-top: 30px;
 }

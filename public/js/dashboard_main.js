@@ -61,7 +61,6 @@ $("#cities").on('change', function (event) {
             success: function (data) {
                 $(".no-data-dashbaord").removeClass("no-data-dashbaord").addClass("dashboard-wrapper");
                 $(".no-data-filter").removeClass("no-data-filter").addClass("filters-bar");
-
                 //Bubble Chart
                 // Get categories
                 let categoryMap = {};
@@ -75,6 +74,12 @@ $("#cities").on('change', function (event) {
 
                 drawBubble(getFormattedData(categoryMap));
                 categories = getFormattedData(categoryMap).children;
+
+                /*
+
+                 <div class="dashboard-wrapper">
+                 </div>
+                 */
 
                 // Price Chart & Bar Chart
                 //Get Price Data
@@ -133,9 +138,7 @@ $("#cities").on('change', function (event) {
                     }
                 }
                 console.log('result', result);
-                if (!(result.length === 1 && result[0].one === 0 && result[0].two === 0, result[0].three === 0, result[0].four === 0)) {
-                    drawPriceStacked(result);
-                }
+                drawPriceStacked(result);
 
                 drawBarChart(bar_chart_data);
 

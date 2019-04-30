@@ -1,7 +1,13 @@
 window.drawPriceStacked = function (data) {
     var actualdata = $.extend(true,{},data);
-
     $("#chart-price-body").empty();
+
+    if ((actualdata.length === 1 && actualdata[0].one === 0 && actualdata[0].two === 0 && actualdata[0].three === 0 && actualdata[0].four === 0)) {
+        $(".chart-price-container .legend ul li").each(function (d, i) {
+            $(this).fadeOut();
+        });
+        return;
+    }
 
 // set the dimensions and margins of the graph
     var margin = {top: 0, right: 0, bottom: 0, left: 100},

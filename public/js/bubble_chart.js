@@ -14,8 +14,7 @@ function drawBubble(dataset) {
     //let diameter = document.getElementById("chart-bubble").getBoundingClientRect().width;
     let diameter = $("#chart-bubble").width();
     let height = document.getElementById("chart-bubble").getBoundingClientRect().height == 0 ? 300 : $("#chart-bubble").width();
-    console.log("diameter: " + diameter);
-    console.log("height: " + height);
+
     let margin = {top: 20, right: 20, bottom: 20, left: 20};
     let color = d3.scaleOrdinal(d3.schemeCategory20);
 

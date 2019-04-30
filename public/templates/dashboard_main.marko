@@ -26,22 +26,34 @@
    <!-- Dashboard -->
    <div class="no-data-dashbaord">
       <div class="no-data-filter">
-         <div class="title-wrapper"><i class="icon" data-feather="sliders"></i> Filter Options</div>
-         <!-- City -->
-         <div>
-            <select id="state">
-               <option value="0">Select State:</option>
-               <for|state| of=input.states>
-               <option value="${state}">${state}</option>
-            </for>
-         </select>
-      </div>
 
-      <div>
-         <select id="cities">
-            <option value="0">Select City:</option>
-         </select>
-      </div>
+         <!-- WELCOME WRAPPER -->
+         <div class="welcome-wrapper">
+            <p class="welcome-text">Welcome to yelp Insights</p>
+            <p class="location-text">Please select your location</p>
+            <div class="title-wrapper"><i class="icon" data-feather="sliders"></i> Filter Options</div>
+
+            <!-- City -->
+            <div>
+               <select id="state">
+                  <option value="0">Select State:</option>
+                  <pre>${input.states}</pre>
+                  <for|state, index| of=input.states>
+                  <option value="${state}">${state}</option>
+                  </for>
+               </select>
+
+               <div>
+                  <select id="cities">
+                     <option value="0">Select City:</option>
+                  </select>
+               </div>
+
+            </div>
+         </div>
+         <!--END: WELCOME WRAPPER -->
+
+
 
    </div>
    <div class="flex-container">
@@ -52,12 +64,16 @@
       </div>
       <div class="flex-item">
          <div class="card chart-med">
-            <div id="chart-bubble"></div>
+             <p>Categories and Restaurants Count</p>
+            <div id="chart-bubble">
+            </div>
          </div>
 
          <div class="card chart-med">
             <div class="chart-price-container" id="chart-price">
-               <div id="chart-price-body"></div>
+                <p>Restaurants in different Price Range</p>
+               <div id="chart-price-body">
+               </div>
                <div class="legend">
                   <ul>
                      <li class="one">$</li>
