@@ -24,6 +24,9 @@ google.charts.setOnLoadCallback(drawWifiChart);
 
 function drawWifiChart(data) {
 
+    let width = $("#chart-wifi").width();
+    let heigth = document.getElementById("chart-wifi").getBoundingClientRect().height ==0 ? 210 : $("#chart-wifi").width();
+
     if(data != undefined) {
         $("#chart-wifi").empty();
         var displayData = google.visualization.arrayToDataTable([
@@ -36,8 +39,8 @@ function drawWifiChart(data) {
 
         var options = {
             title: 'WiFi options in '+ data.city,
-            'width':500,
-            'height':380
+            'width':width,
+            'height':heigth
         };
 
         var chart = new google.visualization.PieChart(document.getElementById('chart-wifi'));
