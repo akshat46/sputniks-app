@@ -225,7 +225,7 @@ module.exports.dashboard_main = function(req, res) {
 
         restaurants.find().distinct('state', function(err, s) {
             userDetails.push(req.body);
-            console.log(userDetails[0].city);
+
             res.marko(templates.dashboard_main, {states:s});
         });
 
@@ -363,24 +363,7 @@ module.exports.get_about = function(req, res) {
 };
 
 
-module.exports.getBubbleData = function(req, res){
-    if (req.session.user){
-        let restaurants = mongoose.model('restaurants');
-        restaurants.find({"city": req.body.city}, function(err, c) {
-            // console.log(c);
-            res.send(c);
-        });
-
-    }
-    else{
-        res.marko(templates.auth);
-        console.log("Nobody is currently logged in!");
-    }
-
-};
-
-
-module.exports.getPriceData = function(req, res){
+module.exports.getData = function(req, res){
     if (req.session.user){
         let restaurants = mongoose.model('restaurants');
         restaurants.find({"city": req.body.city}, function(err, data) {
@@ -395,37 +378,5 @@ module.exports.getPriceData = function(req, res){
     }
 
 };
-
-module.exports.getWifiData = function(req, res){
-    if (req.session.user){
-        let restaurants = mongoose.model('restaurants');
-        restaurants.find({"city": req.body.city}, function(err, data) {
-            res.send(data);
-        });
-
-    }
-    else{
-        res.marko(templates.auth);
-        console.log("Nobody is currently logged in!");
-    }
-
-};
-
-module.exports.getCuisineData = function(req, res){
-    if (req.session.user){
-        let restaurants = mongoose.model('restaurants');
-        restaurants.find({"city": req.body.city}, function(err, data) {
-            console.log(data);
-            res.send(data);
-        });
-
-    }
-    else{
-        res.marko(templates.auth);
-        console.log("Nobody is currently logged in!");
-    }
-
-};
-
 
 

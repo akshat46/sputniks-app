@@ -48,14 +48,6 @@ router.get('/about', controller.get_about);
 
 router.post('/getcity', controller.getCity);
 
-router.post('/get_bubble_data', controller.getBubbleData);
-
-router.post('/get_price_data', controller.getPriceData);
-
-router.post('/get_wifi_data', controller.getWifiData);
-
-router.post('/get_cuisine_data', controller.getCuisineData);
-
-// router.post('/dataentry', controller.dataentry);
+router.post('/getdata', controller.getData);
 
 module.exports = router;

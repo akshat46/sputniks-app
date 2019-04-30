@@ -22,7 +22,7 @@ function render(input, out, __component, component, state) {
 
   component_globals_tag({}, out);
 
-  out.w("<ul class=\"navbar\"><div class=\"container\"><li class=\"navitem brand\"><a href=\"/\">Sputniks</a></li><li><div class=\"dropdown\"><img class=\"dropdown\" src=\"./src/images/img_avatar.png\" alt=\"Avatar\"><div class=\"dropdown-content\"><a href=\"/details\">Edit Details</a><a href=\"/logout\">Sign Out</a></div></div></li><li class=\"navitem\"><a href=\"/about\">About</a></li></div></ul><div class=\"dashboard-wrapper\"><div class=\"filters-bar\"><div class=\"title-wrapper\"><i class=\"icon\" data-feather=\"sliders\"></i> Filter Options</div><div><select id=\"state\"><option value=\"0\">Select State:</option>");
+  out.w("<ul class=\"navbar\"><div class=\"container\"><li class=\"navitem brand\"><a href=\"/\">Sputniks</a></li><li><div class=\"dropdown\"><img class=\"dropdown\" src=\"./src/images/img_avatar.png\" alt=\"Avatar\"><div class=\"dropdown-content\"><a href=\"/details\">Edit Details</a><a href=\"/logout\">Sign Out</a></div></div></li><li class=\"navitem\"><a href=\"/about\">About</a></li></div></ul><div class=\"no-data-dashbaord\"><div class=\"no-data-filter\"><div class=\"title-wrapper\"><i class=\"icon\" data-feather=\"sliders\"></i> Filter Options</div><div><select id=\"state\"><option value=\"0\">Select State:</option>");
 
   var for__26 = 0;
 
