@@ -22,7 +22,7 @@ function render(input, out, __component, component, state) {
 
   component_globals_tag({}, out);
 
-  out.w("<ul class=\"navbar\"><div class=\"container\"><li class=\"navitem brand\"><a href=\"/\">Sputniks</a></li><li><div class=\"dropdown\"><img class=\"dropdown\" src=\"./src/images/img_avatar.png\" alt=\"Avatar\"><div class=\"dropdown-content\"><a href=\"/details\">Edit Details</a><a href=\"/logout\">Sign Out</a></div></div></li><li class=\"navitem\"><a href=\"/about\">About</a></li></div></ul><div class=\"no-data-dashbaord\"><div class=\"no-data-filter\"><div class=\"welcome-wrapper\"><p class=\"welcome-text\">Welcome to yelp Insights</p><p class=\"location-text\">Please select your location</p><div class=\"title-wrapper\"><i class=\"icon\" data-feather=\"sliders\"></i> Filter Options</div><div class=\"cuisine-container\"><select id=\"state\"><option value=\"0\">Select State:</option><pre>" +
+  out.w("<ul class=\"navbar\"><div class=\"container\"><li class=\"navitem brand\"><a href=\"/\">Sputniks</a></li><li><div class=\"dropdown\"><img class=\"dropdown\" src=\"./src/images/img_avatar.png\" alt=\"Avatar\"><div class=\"dropdown-content\"><a href=\"/details\">Edit Details</a><a href=\"/logout\">Sign Out</a></div></div></li><li class=\"navitem\"><a href=\"/about\">About</a></li></div></ul><div class=\"no-data-dashbaord\"><div class=\"no-data-filter\"><div class=\"welcome-wrapper\"><p class=\"welcome-text\">Welcome to Yelp Insights</p><p class=\"location-text\">Please select your location</p><div class=\"title-wrapper\"><i class=\"icon\" data-feather=\"sliders\"></i> Filter Options</div><div class=\"cuisine-container\"><select id=\"state\"><option value=\"0\">Select State:</option><pre>" +
     marko_escapeXml(input.states) +
     "</pre>");
 

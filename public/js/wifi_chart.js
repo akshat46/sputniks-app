@@ -24,6 +24,7 @@ google.charts.setOnLoadCallback(drawWifiChart);
 
 function drawWifiChart(data) {
 
+    $("#chart-wifi").empty();
     let width = $("#chart-wifi").width();
     let heigth = document.getElementById("chart-wifi").getBoundingClientRect().height ==0 ? 210 : $("#chart-wifi").width();
 
